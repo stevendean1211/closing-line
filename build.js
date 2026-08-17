@@ -239,7 +239,7 @@ const pageIndex = (a, cards, tiers) => layout({
   <h1>I bet the<br>fights.<br><span class="out">You check<br>the log.</span></h1>
   <p class="lede">Every pick goes into a public repository before the walkouts, with the price and the
   stake. After the card it's graded against the closing line. The commit history is the receipt.</p>
-  <div class="btns"><a class="btn" href="picks.html">This week's picks</a>
+  <div class="btns"><a class="btn" href="picks.html#free">This week's free play</a>
     <a class="btn ghost" href="record.html">Full record</a></div>
   ${tape(a)}
 </div>
@@ -283,7 +283,40 @@ const pageOdds = (cards, cache) => layout({
   script: LIVE_CARD_JS,
 });
 
-function pagePicks(premium, a, tiers) {
+/**
+ * Free picks that are posted but not yet graded — i.e. this week's play.
+ *
+ * These also appear on record.html, which is deliberate: the record is the
+ * complete ledger by design. But a live free play buried in a historical table
+ * is invisible, and it's the single best conversion asset on the site — someone
+ * who sees a real graded pick for nothing is far likelier to pay for the rest.
+ */
+function livePicks(events) {
+  return events
+    .map((e) => ({ event: e.event, date: e.date, picks: e.picks.filter((p) => !p.result) }))
+    .filter((e) => e.picks.length)
+    .sort((x, y) => new Date(y.date) - new Date(x.date));
+}
+
+function freePickBlock(live) {
+  if (!live.length) {
+    return `<div class="board"><div class="board-empty">
+      No free play live right now — the next one goes up before the card.
+      ${DISCORD_URL ? '' : ''}</div></div>`;
+  }
+  return live.map((c) => `<div class="board">
+    <div class="board-head"><div class="ev">${esc(c.event)}</div>
+      <div class="stamp"><span class="freetag">Free</span> ${c.picks.length} play${c.picks.length === 1 ? '' : 's'}</div></div>
+    ${c.picks.map((p) => `<div class="pick">
+      <div class="p-sel">${esc(p.selection)}<span class="fx">${esc(p.fight)} · ${esc(p.market)}</span></div>
+      <div class="p-num">${odds(p.line_taken)}<small>${esc(p.book)}</small></div>
+      <div class="p-num">${p.units.toFixed(1)}u<small>stake</small></div>
+      ${p.note ? `<div class="p-note">${esc(p.note)}</div>` : ''}
+    </div>`).join('')}
+  </div>`).join('');
+}
+
+function pagePicks(premium, a, tiers, live) {
   const total = premium.reduce((s, c) => s + c.picks.length, 0);
   const teaser = premium.map((c) => `<div class="lock-card">
     <div class="lock-head"><div class="ev">${esc(c.event)}</div>
@@ -302,6 +335,14 @@ function pagePicks(premium, a, tiers) {
   of them moves to the public record — losers included. You're paying for the timing, not for
   information I keep buried.</p>
 </div>
+<section id="free">
+  <h2>This week's free play</h2>
+  <p class="prose">Posted before the bell, graded after, and it lands on the
+  <a href="record.html">public record</a> exactly like the paid ones. No catch — if the free play
+  isn't good enough to convince you, the paid ones wouldn't be either.</p>
+  ${freePickBlock(live)}
+</section>
+
 <section id="packages">
   <h2>Packages</h2>
   <p class="prose">Everything is graded the same way and everything lands on the
@@ -571,7 +612,7 @@ function main() {
   const write = (f, html) => fs.writeFileSync(P(DIR.out, f), html);
   write('index.html', pageIndex(a, cards, tiers));
   write('odds.html', pageOdds(cards, cache));
-  write('picks.html', pagePicks(premium, a, tiers));
+  write('picks.html', pagePicks(premium, a, tiers, livePicks(events)));
   write('record.html', pageRecord(events, a));
   write('method.html', pageMethod(a));
 
