@@ -6,3 +6,4 @@ node_modules/
 dist/
 functions/api/espn-lib.js
 functions/api/premium-data.js
+data/card-cache.json
