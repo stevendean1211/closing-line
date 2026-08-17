@@ -324,4 +324,4 @@ function nextCard(sb, currentId, { includeDWCS = false, now = Date.now() } = {})
 /** YYYYMMDD for ESPN's ?dates= filter. */
 const dateParam = (iso) => String(iso || '').slice(0, 10).replace(/-/g, '');
 
-export { SCOREBOARD, CORE, parseCard, parseCalendar, parseOdds, sectionsByTime };
+export { SCOREBOARD, CORE, isDWCS, parseCard, parseCalendar, parseOdds, sectionsByTime, cardState, methodOf, nextCard, dateParam, dec, amer, norm, athleteIdOf, STALE_HOURS };

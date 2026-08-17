@@ -573,9 +573,35 @@ function main() {
 
   // The Function gets a generated ESM copy of the ESPN parser — one source of
   // truth, so the CLI and the edge can never disagree about card shape.
-  const lib = fs.readFileSync(P('espn.js'), 'utf8')
-    .replace(/^module\.exports = .*$/m, 'export { SCOREBOARD, CORE, parseCard, parseCalendar, parseOdds, sectionsByTime };');
-  fs.writeFileSync(P('functions/api/espn-lib.js'), `// GENERATED from espn.js by build.js — do not edit.\n${lib}`);
+  //
+  // The export list is DERIVED from espn.js's module.exports, not hardcoded.
+  // Hardcoding it meant every new helper added to espn.js silently failed to
+  // export, and the Pages Functions build died with "No matching export" —
+  // which looks like a deploy problem and is actually a codegen problem.
+  const espnSrc = fs.readFileSync(P('espn.js'), 'utf8');
+  const exportLine = espnSrc.match(/module\.exports\s*=\s*\{([\s\S]*?)\}\s*;/);
+  if (!exportLine) {
+    console.error('\n  Could not find module.exports in espn.js — cannot generate espn-lib.js\n');
+    process.exit(1);
+  }
+  const names = exportLine[1].split(',').map((n) => n.trim().split(':')[0].trim()).filter(Boolean);
+  const lib = espnSrc.replace(/module\.exports\s*=\s*\{[\s\S]*?\}\s*;/, `export { ${names.join(', ')} };`);
+  fs.writeFileSync(P('functions/api/espn-lib.js'),
+    `// GENERATED from espn.js by build.js — do not edit.\n${lib}`);
+
+  // Guard: every symbol the Functions import must actually be exported.
+  const imported = new Set();
+  for (const f of ['card.js', 'picks.js']) {
+    const src = fs.readFileSync(P('functions/api', f), 'utf8');
+    const m = src.match(/import\s*\{([^}]*)\}\s*from\s*'\.\/espn-lib\.js'/);
+    if (m) m[1].split(',').forEach((n) => imported.add(n.trim()));
+  }
+  const missing = [...imported].filter((n) => n && !names.includes(n));
+  if (missing.length) {
+    console.error(`\n  espn-lib.js is missing exports the Functions import: ${missing.join(', ')}`);
+    console.error('  Add them to module.exports in espn.js.\n');
+    process.exit(1);
+  }
 
   // Premium picks go to the Function bundle, never to dist/.
   fs.writeFileSync(P('functions/api/premium-data.js'),
