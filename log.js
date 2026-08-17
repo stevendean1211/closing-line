@@ -2,9 +2,11 @@
 /**
  * Pick logger. The tool you'll actually touch every week.
  *
- *   node log.js add      log picks for an upcoming card
- *   node log.js grade    fill in closing lines + results, with odds assist
- *   node log.js status   what's still open
+ *   node log.js add            log a FREE pick — public immediately
+ *   node log.js add --premium  log a PAID pick — never enters the HTML
+ *   node log.js grade          fill in closing lines + results
+ *   node log.js release        move graded premium picks to the public record
+ *   node log.js status         what's still open
  *
  * Design note: grading never writes a closing line you haven't looked at.
  * The odds API suggests, you confirm. Automating that confirmation away
@@ -16,6 +18,7 @@ const path = require('path');
 const readline = require('readline/promises');
 
 const PICKS_DIR = path.join(__dirname, 'data', 'picks');
+const PREMIUM_DIR = path.join(__dirname, 'data', 'premium');
 const ODDS_CACHE = path.join(__dirname, 'data', 'odds-cache.json');
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
@@ -121,26 +124,36 @@ function bestMatch(name, fights) {
 }
 
 // ---------------------------------------------------------------------------
-const loadFiles = () =>
-  fs.existsSync(PICKS_DIR)
-    ? fs.readdirSync(PICKS_DIR).filter((f) => f.endsWith('.json'))
-        .map((f) => ({ file: f, full: path.join(PICKS_DIR, f), data: JSON.parse(fs.readFileSync(path.join(PICKS_DIR, f), 'utf8')) }))
-        .sort((x, y) => new Date(y.data.date) - new Date(x.data.date))
+const loadFrom = (dir, premium) =>
+  fs.existsSync(dir)
+    ? fs.readdirSync(dir).filter((f) => f.endsWith('.json'))
+        .map((f) => ({ file: f, full: path.join(dir, f), premium,
+          data: JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')) }))
     : [];
+
+const loadFiles = () =>
+  [...loadFrom(PICKS_DIR, false), ...loadFrom(PREMIUM_DIR, true)]
+    .sort((x, y) => new Date(y.data.date) - new Date(x.data.date));
 
 const save = (e) => fs.writeFileSync(e.full, JSON.stringify(e.data, null, 2) + '\n');
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 // ---------------------------------------------------------------------------
-async function cmdAdd() {
-  console.log(C.b('\n  Log picks for a card\n'));
+async function cmdAdd(premium) {
+  const dir = premium ? PREMIUM_DIR : PICKS_DIR;
+  console.log(C.b(`\n  Log ${premium ? C.y('PAID') : C.g('FREE')} picks for a card\n`));
+  console.log(C.d(premium
+    ? '  These never appear in the site HTML. Members read them in Whop Forums.\n'
+    : '  These are public immediately — this is your funnel and your proof.\n'));
 
   const event = await ask('  Event name (e.g. UFC 321):');
   const date = await ask('  Date (YYYY-MM-DD):', { def: new Date().toISOString().slice(0, 10) });
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) { console.log(C.r('  Bad date format.')); return; }
 
-  const file = path.join(PICKS_DIR, `${date}-${slug(event)}.json`);
-  let data = { event, date, picks: [] };
+  const file = path.join(dir, `${date}-${slug(event)}.json`);
+  let data = premium
+    ? { event, date, released_at: new Date().toISOString(), picks: [] }
+    : { event, date, picks: [] };
   if (fs.existsSync(file)) {
     data = JSON.parse(fs.readFileSync(file, 'utf8'));
     console.log(C.y(`  Existing file — ${data.picks.length} pick(s). Appending.\n`));
@@ -171,12 +184,17 @@ async function cmdAdd() {
     if (!(await yes('\n  Another pick?'))) break;
   }
 
-  fs.mkdirSync(PICKS_DIR, { recursive: true });
+  fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(file, JSON.stringify(data, null, 2) + '\n');
 
   console.log(C.b(`\n  Wrote ${path.relative(__dirname, file)} — ${data.picks.length} pick(s)\n`));
-  console.log(C.d('  Commit this BEFORE the card starts. That ordering is the whole point:\n'));
-  console.log(`    git add data/picks/ && git commit -m "add: ${event} picks (${data.picks.length})" && git push\n`);
+  if (premium) {
+    console.log(C.y('  PAID picks. Not rendered into any page — build.js fails if they leak.'));
+    console.log(C.d('  Post them in Whop Forums now, then commit:\n'));
+  } else {
+    console.log(C.d('  Commit BEFORE the card starts. That ordering is the whole point:\n'));
+  }
+  console.log(`    git add data/ && git commit -m "add: ${event} ${premium ? 'premium ' : ''}picks (${data.picks.length})" && git push\n`);
 }
 
 // ---------------------------------------------------------------------------
@@ -188,7 +206,7 @@ async function cmdGrade() {
   console.log(C.b('\n  Grade open picks\n'));
   open.forEach((e, i) => {
     const n = e.data.picks.filter((p) => !p.result).length;
-    console.log(`  ${C.c(String(i + 1))}  ${e.data.event} ${C.d(`(${e.data.date}) — ${n} open`)}`);
+    console.log(`  ${C.c(String(i + 1))}  ${e.premium ? C.y('[PAID]') : C.g('[FREE]')} ${e.data.event} ${C.d(`(${e.data.date}) — ${n} open`)}`);
   });
 
   const pick = Number(await ask(`\n  Which card?`, { def: '1' })) - 1;
@@ -247,7 +265,72 @@ async function cmdGrade() {
   save(entry);
   console.log(C.b(`\n  Updated ${entry.file}\n`));
   console.log(C.d('  Second commit. Grading only — no other edits:\n'));
-  console.log(`    git add data/picks/ && git commit -m "grade: ${entry.data.event}" && git push\n`);
+  console.log(`    git add data/ && git commit -m "grade: ${entry.data.event}" && git push\n`);
+  if (entry.premium && entry.data.picks.every((p) => p.result)) {
+    console.log(C.y('  This paid card is fully graded. Make it public:\n'));
+    console.log('    node log.js release\n');
+  }
+}
+
+// ---------------------------------------------------------------------------
+/**
+ * Move fully-graded paid picks into the public record.
+ *
+ * This is what keeps the paywall honest. Subscribers pay for TIMING — the picks
+ * before the bell — not for information that stays hidden. Once a card is
+ * graded, every pick lands on the public ledger, winners and losers alike.
+ *
+ * Without this step the record only ever shows free picks, and "every pick I've
+ * made is public" quietly stops being true.
+ */
+async function cmdRelease() {
+  const premium = loadFrom(PREMIUM_DIR, true);
+  const ready = premium.filter((e) => e.data.picks.length && e.data.picks.every((p) => p.result));
+
+  if (!premium.length) { console.log(C.d('\n  No paid cards logged.\n')); return; }
+  if (!ready.length) {
+    console.log(C.y('\n  No fully-graded paid cards yet.\n'));
+    for (const e of premium) {
+      const open = e.data.picks.filter((p) => !p.result).length;
+      console.log(`  ${e.data.event} ${C.d(`— ${open} pick(s) still open`)}`);
+    }
+    console.log(C.d('\n  Grade them first: node log.js grade\n'));
+    return;
+  }
+
+  console.log(C.b('\n  Release graded paid picks to the public record\n'));
+  for (const e of ready) {
+    const w = e.data.picks.filter((p) => p.result === 'W').length;
+    const l = e.data.picks.filter((p) => p.result === 'L').length;
+    console.log(`  ${e.data.event} ${C.d(`— ${e.data.picks.length} pick(s), ${w}-${l}`)}`);
+  }
+
+  if (!(await yes('\n  Move these to the public record?'))) {
+    console.log(C.d('\n  Left in place.\n'));
+    return;
+  }
+
+  fs.mkdirSync(PICKS_DIR, { recursive: true });
+  for (const e of ready) {
+    const target = path.join(PICKS_DIR, e.file);
+    if (fs.existsSync(target)) {
+      // Merge rather than clobber — a card can have both free and paid picks.
+      const existing = JSON.parse(fs.readFileSync(target, 'utf8'));
+      const ids = new Set(existing.picks.map((p) => p.id));
+      existing.picks.push(...e.data.picks.filter((p) => !ids.has(p.id)));
+      fs.writeFileSync(target, JSON.stringify(existing, null, 2) + '\n');
+      console.log(C.g(`  merged into ${e.file}`));
+    } else {
+      const { released_at, ...rest } = e.data;
+      fs.writeFileSync(target, JSON.stringify(rest, null, 2) + '\n');
+      console.log(C.g(`  moved ${e.file}`));
+    }
+    fs.unlinkSync(e.full);
+  }
+
+  console.log(C.b('\n  Done. Rebuild and push:\n'));
+  console.log('    node build.js');
+  console.log(`    git add data/ && git commit -m "release: paid picks to public record" && git push\n`);
 }
 
 // ---------------------------------------------------------------------------
@@ -274,16 +357,19 @@ async function cmdStatus() {
 (async () => {
   const cmd = process.argv[2];
   try {
-    if (cmd === 'add') await cmdAdd();
+    if (cmd === 'add') await cmdAdd(process.argv.includes('--premium'));
+    else if (cmd === 'release') await cmdRelease();
     else if (cmd === 'grade') await cmdGrade();
     else if (cmd === 'status') await cmdStatus();
     else {
       console.log(`
   ${C.b('Pick logger')}
 
-    node log.js add       log picks for an upcoming card
-    node log.js grade     fill in closing lines and results
-    node log.js status    what's still open
+    node log.js add             log a FREE pick — public immediately
+    node log.js add --premium   log a PAID pick — never enters the HTML
+    node log.js grade           fill in closing lines and results
+    node log.js release         move graded paid picks to the public record
+    node log.js status          what's still open
 
   Then: node build.js
 `);
