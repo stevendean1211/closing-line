@@ -483,9 +483,13 @@ const LIVE_CARD_JS = `<script>
       var d=await r.json();
       var el=document.getElementById('cards');
       if(!el) return;
+      // A failed or empty live refresh must leave the statically-rendered
+      // cards alone. Overwriting good build-time content with an empty state
+      // turns a soft failure into a blank page.
       if(!d.cards || !d.cards.length){
-        stamp(d.fetched_at?'updated '+new Date(d.fetched_at).toISOString().slice(11,16)+'Z':'no cards');
-        el.innerHTML='<div class="fightcard"><div class="board-empty">No confirmed cards announced right now.</div></div>';
+        if(!el.querySelector('.fightcard')){
+          el.innerHTML='<div class="fightcard"><div class="board-empty">No confirmed cards announced right now.</div></div>';
+        }
         return;
       }
       el.innerHTML=(compact?d.cards.slice(0,1):d.cards).map(card).join('');

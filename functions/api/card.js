@@ -8,7 +8,17 @@
  */
 import { SCOREBOARD, CORE, isDWCS, parseCard, parseCalendar, parseOdds, nextCard, dateParam } from './espn-lib.js';
 
-const UA = { 'User-Agent': 'Mozilla/5.0 (compatible; card-board/1.0)' };
+// ESPN's public endpoints reject obviously-automated clients. A plain browser
+// UA plus the headers espn.com itself sends gets through more often than a
+// custom agent string does. If they're blocking by IP range instead, no header
+// helps — that's what the scheduled GitHub Action is the answer to.
+const UA = {
+  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+  'Accept': 'application/json, text/plain, */*',
+  'Accept-Language': 'en-US,en;q=0.9',
+  'Referer': 'https://www.espn.com/',
+  'Origin': 'https://www.espn.com',
+};
 
 export async function onRequestGet(context) {
   const ttl = Number(context.env.CARD_TTL || 300);

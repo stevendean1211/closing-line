@@ -1,32 +1,30 @@
-name: Refresh odds and rebuild
+name: Refresh cards
 
-# Odds go stale fast. This pulls fresh numbers and rebuilds so the board isn't
-# showing yesterday's prices. Cloudflare Pages redeploys automatically on push.
+# ESPN blocks datacenter IPs at the edge, so the Cloudflare Function can't be
+# relied on for the data. This Action fetches on a schedule and commits the
+# cache; Cloudflare then builds a fully static site from it. The Function still
+# tries a live refresh, and simply does nothing when it can't.
 on:
   schedule:
-    - cron: '0 */6 * * *'      # every 6 hours
-    - cron: '*/20 22-23 * * 6' # every 20 min Saturday night — main card window (UTC)
+    - cron: '0 */6 * * *'       # every 6 hours
+    - cron: '*/30 20-23 * * 6'  # every 30 min, Saturday night (UTC) — fight window
+    - cron: '*/30 0-4 * * 0'    # and into Sunday morning
   push:
-    paths: ['data/picks/**']    # rebuild immediately when a pick is logged
-  workflow_dispatch:            # manual trigger button
+    paths: ['data/picks/**', 'data/premium/**']
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  refresh:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+        with: { node-version: '20' }
 
-      - name: Fetch odds
-        env:
-          # no key needed for cards
-          ODDS_PROVIDER: ${{ vars.ODDS_PROVIDER || 'theoddsapi' }}
+      - name: Fetch cards from ESPN
         run: node fetch-card.js
 
       - name: Build
@@ -34,8 +32,8 @@ jobs:
 
       - name: Commit refreshed cache
         run: |
-          git config user.name "odds-bot"
+          git config user.name "card-bot"
           git config user.email "actions@github.com"
-          git add data/card-cache.json dist/
-          git diff --staged --quiet || git commit -m "chore: refresh odds [skip ci]"
+          git add data/card-cache.json functions/api/espn-lib.js
+          git diff --staged --quiet || git commit -m "chore: refresh cards [skip ci]"
           git push
