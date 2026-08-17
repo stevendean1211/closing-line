@@ -132,10 +132,22 @@ async function main() {
   if (card && !card.announced) cards.push(await priceCard(card));
   else if (card) cards.push(card);
 
-  for (const c of parseCalendar(sb, { limit: 6 })) {
-    if (card && c.eventId === String(card.id)) continue;
-    if (new Date(c.start).getTime() < Date.now()) continue;
-    cards.push({ id: c.eventId, name: c.name, date: c.date, start: c.start,
+  // Same as the Function: pull each upcoming card individually. The default
+  // scoreboard returns one event, so a calendar stub is a last resort, not the
+  // normal path.
+  const upcoming = parseCalendar(sb, { limit: 5 })
+    .filter((c) => !card || c.eventId !== String(card.id))
+    .filter((c) => new Date(c.start).getTime() > Date.now() - 6 * 3600e3);
+
+  for (const c of upcoming) {
+    let added = null;
+    try {
+      const parsed = parseCard(await get(`${SCOREBOARD}?dates=${dateParam(c.start)}`));
+      if (parsed && parsed.sections.length && String(parsed.id) === String(c.eventId)) {
+        added = await priceCard(parsed);
+      }
+    } catch { /* fall through */ }
+    cards.push(added || { id: c.eventId, name: c.name, date: c.date, start: c.start,
       venue: null, count: 0, pricedCount: 0, sections: [], announced: true, state: 'pre' });
   }
 

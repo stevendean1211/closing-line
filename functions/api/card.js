@@ -21,30 +21,39 @@ export async function onRequestGet(context) {
   let cards = [];
   try {
     const sb = await get(SCOREBOARD);
-    let current = parseCard(sb);
+    let featured = parseCard(sb);
 
-    // Roll forward past finished cards — ESPN leaves them on the scoreboard.
-    for (let hop = 0; hop < 3 && current && (current.finished || isDWCS(current.name)); hop++) {
-      const next = nextCard(sb, current.id);
-      if (!next) break;
+    // Roll forward past finished cards and Contender Series.
+    for (let hop = 0; hop < 3 && featured && (featured.finished || isDWCS(featured.name)); hop++) {
+      const next = nextCard(sb, featured.id);
+      if (!next) { featured = null; break; }
       const parsed = parseCard(await get(`${SCOREBOARD}?dates=${dateParam(next.start)}`));
-      if (!parsed || parsed.id === current.id) {
-        current = { id: next.eventId, name: next.name, date: next.date, start: next.start,
-          venue: null, count: 0, pricedCount: 0, sections: [], announced: true, state: 'pre' };
-        break;
-      }
-      current = parsed;
+      if (!parsed || parsed.id === featured.id) { featured = null; break; }
+      featured = parsed;
     }
 
-    if (current && !current.announced) cards.push(await priceCard(current));
-    else if (current) cards.push(current);
+    if (featured && !isDWCS(featured.name)) cards.push(await priceCard(featured));
 
-    for (const c of parseCalendar(sb, { limit: 6 })) {
-      if (current && c.eventId === String(current.id)) continue;
-      if (new Date(c.start).getTime() < Date.now()) continue;
-      cards.push({ id: c.eventId, name: c.name, date: c.date, start: c.start,
-        venue: null, count: 0, pricedCount: 0, sections: [], announced: true, state: 'pre' });
-    }
+    // Fetch each upcoming card individually. The default scoreboard only ever
+    // returns ONE event, so without this every other card renders as a bare
+    // name and date — even when ESPN has the full bout list published.
+    const upcoming = parseCalendar(sb, { limit: 5 })
+      .filter((c) => !featured || c.eventId !== String(featured.id))
+      .filter((c) => new Date(c.start).getTime() > Date.now() - 6 * 3600e3);
+
+    const fetched = await Promise.all(upcoming.map(async (c) => {
+      try {
+        const parsed = parseCard(await get(`${SCOREBOARD}?dates=${dateParam(c.start)}`));
+        if (parsed && parsed.sections.length && String(parsed.id) === String(c.eventId)) {
+          return await priceCard(parsed);
+        }
+      } catch { /* fall through to the stub */ }
+      // Genuinely unpublished — show the card exists, with no invented bouts.
+      return { id: c.eventId, name: c.name, date: c.date, start: c.start,
+        venue: null, count: 0, pricedCount: 0, sections: [], announced: true, state: 'pre' };
+    }));
+    cards.push(...fetched);
+
   } catch (e) {
     // Fail soft — the page keeps whatever it rendered from the build cache.
     return json({ configured: true, cards: [], error: String(e.message).slice(0, 160) });
