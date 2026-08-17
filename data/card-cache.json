@@ -1,0 +1,42 @@
+{
+  "fetched_at": "2026-08-16T04:35:40.283Z",
+  "configured": true,
+  "cards": [
+    {
+      "id": "600060493",
+      "name": "UFC Fight Night: Hernandez vs. Rodrigues",
+      "date": "2026-08-23",
+      "start": "2026-08-23T00:00Z",
+      "venue": null,
+      "count": 0,
+      "pricedCount": 0,
+      "sections": [],
+      "announced": true,
+      "state": "pre"
+    },
+    {
+      "id": "600060620",
+      "name": "UFC Fight Night: Nurmagomedov vs. Song",
+      "date": "2026-08-29",
+      "start": "2026-08-29T10:00Z",
+      "venue": null,
+      "count": 0,
+      "pricedCount": 0,
+      "sections": [],
+      "announced": true,
+      "state": "pre"
+    },
+    {
+      "id": "600060963",
+      "name": "UFC 331: Van vs. Pantoja 2",
+      "date": "2026-09-20",
+      "start": "2026-09-20T00:00Z",
+      "venue": null,
+      "count": 0,
+      "pricedCount": 0,
+      "sections": [],
+      "announced": true,
+      "state": "pre"
+    }
+  ]
+}

@@ -1,0 +1,296 @@
+#!/usr/bin/env node
+/**
+ * Pick logger. The tool you'll actually touch every week.
+ *
+ *   node log.js add      log picks for an upcoming card
+ *   node log.js grade    fill in closing lines + results, with odds assist
+ *   node log.js status   what's still open
+ *
+ * Design note: grading never writes a closing line you haven't looked at.
+ * The odds API suggests, you confirm. Automating that confirmation away
+ * would put silent errors in the ledger, and the ledger is the product.
+ */
+
+const fs = require('fs');
+const path = require('path');
+const readline = require('readline/promises');
+
+const PICKS_DIR = path.join(__dirname, 'data', 'picks');
+const ODDS_CACHE = path.join(__dirname, 'data', 'odds-cache.json');
+
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+const C = {
+  d: (s) => `\x1b[2m${s}\x1b[0m`, b: (s) => `\x1b[1m${s}\x1b[0m`,
+  g: (s) => `\x1b[32m${s}\x1b[0m`, r: (s) => `\x1b[31m${s}\x1b[0m`,
+  y: (s) => `\x1b[33m${s}\x1b[0m`, c: (s) => `\x1b[36m${s}\x1b[0m`,
+};
+
+// ---------------------------------------------------------------------------
+// Prompt helpers
+// ---------------------------------------------------------------------------
+async function ask(q, { required = true, def = null } = {}) {
+  for (;;) {
+    const hint = def !== null ? C.d(` [${def}]`) : '';
+    const v = (await rl.question(`${q}${hint} `)).trim();
+    if (!v && def !== null) return def;
+    if (!v && !required) return null;
+    if (v) return v;
+    console.log(C.r('  required'));
+  }
+}
+
+async function askOdds(q, { required = true } = {}) {
+  for (;;) {
+    const v = await ask(q, { required });
+    if (v === null) return null;
+    const n = Number(v.replace('+', ''));
+    if (Number.isInteger(n) && Math.abs(n) >= 100) return n;
+    console.log(C.r('  American odds, e.g. -145 or +210'));
+  }
+}
+
+async function askNum(q, def) {
+  for (;;) {
+    const v = await ask(q, { def: String(def) });
+    const n = Number(v);
+    if (Number.isFinite(n) && n > 0) return n;
+    console.log(C.r('  positive number'));
+  }
+}
+
+async function askOne(q, opts) {
+  const keys = opts.map((o) => o[0]).join('/');
+  for (;;) {
+    const v = (await ask(`${q} ${C.d(`(${keys})`)}`)).toLowerCase();
+    const hit = opts.find((o) => o[0].toLowerCase() === v[0]);
+    if (hit) return hit;
+    console.log(C.r(`  one of: ${keys}`));
+  }
+}
+
+const yes = async (q) => (await ask(`${q} ${C.d('(y/n)')}`)).toLowerCase().startsWith('y');
+
+// ---------------------------------------------------------------------------
+// Fighter name matching — suggest only, never decide
+// ---------------------------------------------------------------------------
+// Characters that survive NFD decomposition intact and would otherwise become
+// word-breaking spaces. MMA rosters are full of these — Błachowicz, Jędrzejczyk,
+// Øverland, Ćirković. Getting this wrong silently rejects real matches.
+const TRANSLIT = { 'ł': 'l', 'ø': 'o', 'đ': 'd', 'ħ': 'h', 'ı': 'i', 'ŋ': 'n',
+  'ß': 'ss', 'æ': 'ae', 'œ': 'oe', 'þ': 'th', 'ð': 'd', 'ŧ': 't', 'ĸ': 'k' };
+
+const normalize = (s) =>
+  s.toLowerCase().replace(/[łøđħıŋßæœþðŧĸ]/g, (c) => TRANSLIT[c] || c)
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/["\u201c\u201d].*?["\u201c\u201d]/g, ' ') // strip "Bones"-style nicknames
+    .replace(/['\u2018\u2019]/g, '')                    // O'Malley -> omalley, not "o malley"
+    .replace(/[^a-z\s]/g, ' ').replace(/\s+/g, ' ').trim();
+
+function levenshtein(a, b) {
+  const m = Array.from({ length: b.length + 1 }, (_, i) => [i, ...Array(a.length).fill(0)]);
+  for (let j = 0; j <= a.length; j++) m[0][j] = j;
+  for (let i = 1; i <= b.length; i++)
+    for (let j = 1; j <= a.length; j++)
+      m[i][j] = Math.min(m[i - 1][j] + 1, m[i][j - 1] + 1, m[i - 1][j - 1] + (a[j - 1] === b[i - 1] ? 0 : 1));
+  return m[b.length][a.length];
+}
+
+/** 0..1. Blends surname exactness with whole-string distance. */
+function similarity(a, b) {
+  const A = normalize(a), B = normalize(b);
+  if (!A || !B) return 0;
+  if (A === B) return 1;
+
+  const ta = A.split(' '), tb = B.split(' ');
+  const surname = ta[ta.length - 1] === tb[tb.length - 1] ? 1 : 0;
+  const shared = ta.filter((t) => tb.includes(t)).length / Math.max(ta.length, tb.length);
+  const dist = 1 - levenshtein(A, B) / Math.max(A.length, B.length);
+
+  return 0.45 * surname + 0.25 * shared + 0.3 * dist;
+}
+
+function bestMatch(name, fights) {
+  let best = null;
+  for (const f of fights) {
+    for (const side of ['a', 'b']) {
+      const score = similarity(name, f[side].name);
+      if (!best || score > best.score) best = { score, fight: f, side, name: f[side].name };
+    }
+  }
+  return best;
+}
+
+// ---------------------------------------------------------------------------
+const loadFiles = () =>
+  fs.existsSync(PICKS_DIR)
+    ? fs.readdirSync(PICKS_DIR).filter((f) => f.endsWith('.json'))
+        .map((f) => ({ file: f, full: path.join(PICKS_DIR, f), data: JSON.parse(fs.readFileSync(path.join(PICKS_DIR, f), 'utf8')) }))
+        .sort((x, y) => new Date(y.data.date) - new Date(x.data.date))
+    : [];
+
+const save = (e) => fs.writeFileSync(e.full, JSON.stringify(e.data, null, 2) + '\n');
+const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+// ---------------------------------------------------------------------------
+async function cmdAdd() {
+  console.log(C.b('\n  Log picks for a card\n'));
+
+  const event = await ask('  Event name (e.g. UFC 321):');
+  const date = await ask('  Date (YYYY-MM-DD):', { def: new Date().toISOString().slice(0, 10) });
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) { console.log(C.r('  Bad date format.')); return; }
+
+  const file = path.join(PICKS_DIR, `${date}-${slug(event)}.json`);
+  let data = { event, date, picks: [] };
+  if (fs.existsSync(file)) {
+    data = JSON.parse(fs.readFileSync(file, 'utf8'));
+    console.log(C.y(`  Existing file — ${data.picks.length} pick(s). Appending.\n`));
+  }
+
+  const base = slug(event).replace(/-/g, '');
+  for (let n = data.picks.length + 1; ; n++) {
+    console.log(C.c(`\n  — Pick ${n} —`));
+    const fight = await ask('  Fight (A vs B):');
+    const selection = await ask('  Your selection:');
+    const [, market] = await askOne('  Market:', [
+      ['m', 'moneyline'], ['t', 'total'], ['d', 'method'], ['p', 'prop'], ['r', 'parlay'],
+    ]);
+    const line_taken = await askOdds('  Price you took:');
+    const book = await ask('  Book:', { def: 'DraftKings' });
+    const units = await askNum('  Units:', 1);
+    const note = await ask('  Note (optional):', { required: false });
+
+    data.picks.push({
+      id: `${base}-${String(n).padStart(2, '0')}`,
+      fight, selection, market, line_taken, book, units,
+      posted_at: new Date().toISOString(),
+      closing_line: null, result: null,
+      ...(note ? { note } : {}),
+    });
+
+    console.log(C.g(`  ✓ ${selection} ${line_taken > 0 ? '+' : ''}${line_taken} · ${units}u`));
+    if (!(await yes('\n  Another pick?'))) break;
+  }
+
+  fs.mkdirSync(PICKS_DIR, { recursive: true });
+  fs.writeFileSync(file, JSON.stringify(data, null, 2) + '\n');
+
+  console.log(C.b(`\n  Wrote ${path.relative(__dirname, file)} — ${data.picks.length} pick(s)\n`));
+  console.log(C.d('  Commit this BEFORE the card starts. That ordering is the whole point:\n'));
+  console.log(`    git add data/picks/ && git commit -m "add: ${event} picks (${data.picks.length})" && git push\n`);
+}
+
+// ---------------------------------------------------------------------------
+async function cmdGrade() {
+  const files = loadFiles();
+  const open = files.filter((e) => e.data.picks.some((p) => !p.result));
+  if (!open.length) { console.log(C.g('\n  Nothing open. Everything is graded.\n')); return; }
+
+  console.log(C.b('\n  Grade open picks\n'));
+  open.forEach((e, i) => {
+    const n = e.data.picks.filter((p) => !p.result).length;
+    console.log(`  ${C.c(String(i + 1))}  ${e.data.event} ${C.d(`(${e.data.date}) — ${n} open`)}`);
+  });
+
+  const pick = Number(await ask(`\n  Which card?`, { def: '1' })) - 1;
+  const entry = open[pick];
+  if (!entry) { console.log(C.r('  No such card.')); return; }
+
+  let fights = [];
+  try {
+    const cache = JSON.parse(fs.readFileSync(ODDS_CACHE, 'utf8'));
+    fights = cache.fights || [];
+    if (fights.length) console.log(C.d(`\n  Odds cache: ${fights.length} fights (${cache.fetched_at || 'unknown'})`));
+  } catch { /* fine — manual entry */ }
+  if (!fights.length) console.log(C.d('\n  No odds cache. Run `node fetch-odds.js` first for suggestions.'));
+
+  for (const p of entry.data.picks) {
+    if (p.result) continue;
+
+    console.log(C.c(`\n  — ${p.selection} ${C.d(`(${p.fight})`)} —`));
+    console.log(C.d(`     took ${p.line_taken > 0 ? '+' : ''}${p.line_taken} · ${p.units}u · ${p.book}`));
+
+    let suggested = null;
+    if (fights.length && p.market === 'moneyline') {
+      const m = bestMatch(p.selection, fights);
+      if (m && m.score > 0.55) {
+        const price = m.fight[m.side].consensus;
+        const conf = m.score > 0.85 ? C.g('high') : m.score > 0.7 ? C.y('medium') : C.r('LOW');
+        console.log(`     match: ${C.b(m.name)} @ ${price > 0 ? '+' : ''}${price} ${C.d(`(confidence ${conf})`)}`);
+        if (m.score < 0.85) console.log(C.y('     ⚠ verify this is the right fighter before accepting'));
+        suggested = price;
+      } else {
+        console.log(C.d('     no confident match in the odds cache'));
+      }
+    }
+
+    let closing = null;
+    if (suggested !== null && (await yes(`     Use ${suggested > 0 ? '+' : ''}${suggested} as the close?`))) {
+      closing = suggested;
+    } else {
+      closing = await askOdds('     Closing line:', { required: false });
+    }
+
+    const [, result] = await askOne('     Result:', [['w', 'W'], ['l', 'L'], ['p', 'P'], ['s', null]]);
+    if (result === null) { console.log(C.d('     skipped')); continue; }
+
+    p.closing_line = closing;
+    p.result = result;
+
+    if (closing !== null) {
+      const dec = (o) => (o > 0 ? o / 100 + 1 : 100 / Math.abs(o) + 1);
+      const clv = (dec(p.line_taken) / dec(closing) - 1) * 100;
+      const tag = clv > 0 ? C.g(`+${clv.toFixed(1)}% — beat the close`) : C.r(`${clv.toFixed(1)}% — missed it`);
+      console.log(`     CLV ${tag}`);
+    }
+  }
+
+  save(entry);
+  console.log(C.b(`\n  Updated ${entry.file}\n`));
+  console.log(C.d('  Second commit. Grading only — no other edits:\n'));
+  console.log(`    git add data/picks/ && git commit -m "grade: ${entry.data.event}" && git push\n`);
+}
+
+// ---------------------------------------------------------------------------
+async function cmdStatus() {
+  const files = loadFiles();
+  if (!files.length) { console.log(C.y('\n  No picks logged yet. `node log.js add` to start.\n')); return; }
+
+  const all = files.flatMap((e) => e.data.picks);
+  const open = all.filter((p) => !p.result);
+  const missing = all.filter((p) => p.result && p.closing_line == null);
+
+  console.log(C.b(`\n  ${files.length} card(s) · ${all.length} pick(s)\n`));
+  for (const e of files) {
+    const o = e.data.picks.filter((p) => !p.result).length;
+    console.log(`  ${e.data.date}  ${e.data.event.padEnd(18)} ${C.d(`${e.data.picks.length} pick(s)`)}` +
+      (o ? `  ${C.y(`${o} open`)}` : `  ${C.g('graded')}`));
+  }
+  if (open.length) console.log(C.y(`\n  ${open.length} awaiting grade — \`node log.js grade\``));
+  if (missing.length) console.log(C.r(`\n  ${missing.length} graded without a closing line. Those don't count toward CLV.`));
+  console.log();
+}
+
+// ---------------------------------------------------------------------------
+(async () => {
+  const cmd = process.argv[2];
+  try {
+    if (cmd === 'add') await cmdAdd();
+    else if (cmd === 'grade') await cmdGrade();
+    else if (cmd === 'status') await cmdStatus();
+    else {
+      console.log(`
+  ${C.b('Pick logger')}
+
+    node log.js add       log picks for an upcoming card
+    node log.js grade     fill in closing lines and results
+    node log.js status    what's still open
+
+  Then: node build.js
+`);
+    }
+  } catch (e) {
+    console.error(C.r(`\n  ${e.message}\n`));
+  } finally {
+    rl.close();
+  }
+})();

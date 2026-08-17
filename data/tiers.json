@@ -1,0 +1,69 @@
+{
+  "_comment": "Pricing config. Edit here, rebuild, done. Prices are placeholders \u2014 see README on what the record has to justify before you charge each one.",
+  "currency": "$",
+  "tiers": [
+    {
+      "id": "free",
+      "name": "Free",
+      "price": "0",
+      "cadence": "always",
+      "tagline": "One play a card, in public.",
+      "cta": "Get the free play",
+      "url": "https://whop.com/closing-line-d9f6/free-play-db/",
+      "features": [
+        "One play on every card",
+        "Posted before the bell",
+        "Graded on the public record like everything else",
+        "Full access to the odds board"
+      ]
+    },
+    {
+      "id": "card",
+      "name": "Card Pass",
+      "price": "25",
+      "cadence": "per card",
+      "tagline": "Pay for the cards you actually bet.",
+      "cta": "Buy a card pass",
+      "url": "https://whop.com/closing-line-d9f6/card-pass-de/",
+      "features": [
+        "Every play on one card",
+        "Main card, prelims and props",
+        "Price taken, book, and stake in units",
+        "Written reasoning on each play",
+        "7 days access, no renewal"
+      ]
+    },
+    {
+      "id": "monthly",
+      "name": "Monthly",
+      "price": "59",
+      "cadence": "per month",
+      "tagline": "Every card, every play.",
+      "featured": true,
+      "cta": "Start monthly",
+      "url": "https://whop.com/closing-line-d9f6/monthly-9d-3ed3/",
+      "features": [
+        "Everything in Card Pass, every card",
+        "Roughly 3\u20135 cards a month",
+        "Members Discord",
+        "Line-movement alerts on posted plays",
+        "Cancel any time"
+      ]
+    },
+    {
+      "id": "season",
+      "name": "Season",
+      "price": "449",
+      "cadence": "per year",
+      "tagline": "The full calendar, about 35% off monthly.",
+      "cta": "Go annual",
+      "url": "https://whop.com/closing-line-d9f6/season-pass-a0/",
+      "features": [
+        "Everything in Monthly, all ~40 cards",
+        "Locked at this price while you stay subscribed",
+        "Priority on questions in Discord",
+        "Quarterly CLV breakdown"
+      ]
+    }
+  ]
+}
