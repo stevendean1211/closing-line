@@ -8,7 +8,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { SCOREBOARD, CORE, parseCard, parseCalendar, parseOdds, nextCard, dateParam } = require('./espn.js');
+const { SCOREBOARD, CORE, isDWCS, parseCard, parseCalendar, parseOdds, nextCard, dateParam } = require('./espn.js');
 
 const OUT = path.join(__dirname, 'data', 'card-cache.json');
 const VERIFY = process.argv.includes('--verify');
@@ -20,12 +20,33 @@ const get = async (url) => {
   return r.json();
 };
 
-/** Attach odds to each bout. ESPN exposes these per competition. */
+
+/**
+ * ESPN's core API paginates with $ref stubs — `/odds` returns
+ * {count, items:[{$ref}]} rather than the odds themselves. Resolve one level
+ * before parsing. count:0 means the bout genuinely has no line, which is the
+ * normal state for prospects and for any card more than a few days out.
+ */
+async function fetchOdds(f, get) {
+  const idx = await get(`${CORE}/events/${f.eventId}/competitions/${f.id}/odds`);
+  if (!idx || !idx.count || !Array.isArray(idx.items) || !idx.items.length) return null;
+
+  const items = await Promise.all(idx.items.map(async (it) => {
+    if (!it || !it.$ref) return it;
+    try { return await get(String(it.$ref).replace('http://', 'https://')); }
+    catch { return null; }
+  }));
+
+  return parseOdds({ items: items.filter(Boolean) },
+    { id: f.a.id, name: f.a.name }, { id: f.b.id, name: f.b.name });
+}
+
+/** Attach odds to each bout. */
 async function priceCard(card) {
   let ok = 0;
   await Promise.all(card.sections.flatMap((s) => s.fights).map(async (f) => {
     try {
-      const p = parseOdds(await get(`${CORE}/events/${f.eventId}/competitions/${f.id}/odds`), { id: f.a.id, name: f.a.name }, { id: f.b.id, name: f.b.name });
+      const p = await fetchOdds(f, get);
       if (p) {
         Object.assign(f.a, p.a); Object.assign(f.b, p.b);
         f.hold = p.hold; f.books = p.books; f.boundBy = p.boundBy; f.priced = true; ok++;
@@ -87,10 +108,10 @@ async function featuredCard() {
   const skipped = [];
 
   for (let hop = 0; hop < 3; hop++) {
-    if (card && !card.finished) return { sb, card, skipped };
+    if (card && !card.finished && !isDWCS(card.name)) return { sb, card, skipped };
     const next = nextCard(sb, card?.id);
     if (!next) break;
-    if (card) skipped.push(`${card.name} (${card.state})`);
+    if (card) skipped.push(`${card.name} (${isDWCS(card.name) ? 'contender series' : card.state})`);
     const dated = await get(`${SCOREBOARD}?dates=${dateParam(next.start)}`);
     const parsed = parseCard(dated);
     // ?dates= can echo the same event; if so, fall back to the calendar stub.

@@ -6,7 +6,7 @@
  * Edge-cached (CARD_TTL, default 300s) purely to be a good citizen: ESPN
  * publishes no rate limits and owes us nothing, so we don't hammer them.
  */
-import { SCOREBOARD, CORE, parseCard, parseCalendar, parseOdds, nextCard, dateParam } from './espn-lib.js';
+import { SCOREBOARD, CORE, isDWCS, parseCard, parseCalendar, parseOdds, nextCard, dateParam } from './espn-lib.js';
 
 const UA = { 'User-Agent': 'Mozilla/5.0 (compatible; card-board/1.0)' };
 
@@ -24,7 +24,7 @@ export async function onRequestGet(context) {
     let current = parseCard(sb);
 
     // Roll forward past finished cards — ESPN leaves them on the scoreboard.
-    for (let hop = 0; hop < 3 && current && current.finished; hop++) {
+    for (let hop = 0; hop < 3 && current && (current.finished || isDWCS(current.name)); hop++) {
       const next = nextCard(sb, current.id);
       if (!next) break;
       const parsed = parseCard(await get(`${SCOREBOARD}?dates=${dateParam(next.start)}`));
@@ -62,12 +62,33 @@ async function get(url) {
   return r.json();
 }
 
+
+/**
+ * ESPN's core API paginates with $ref stubs — `/odds` returns
+ * {count, items:[{$ref}]} rather than the odds themselves. Resolve one level
+ * before parsing. count:0 means the bout genuinely has no line, which is the
+ * normal state for prospects and for any card more than a few days out.
+ */
+async function fetchOdds(f, get) {
+  const idx = await get(`${CORE}/events/${f.eventId}/competitions/${f.id}/odds`);
+  if (!idx || !idx.count || !Array.isArray(idx.items) || !idx.items.length) return null;
+
+  const items = await Promise.all(idx.items.map(async (it) => {
+    if (!it || !it.$ref) return it;
+    try { return await get(String(it.$ref).replace('http://', 'https://')); }
+    catch { return null; }
+  }));
+
+  return parseOdds({ items: items.filter(Boolean) },
+    { id: f.a.id, name: f.a.name }, { id: f.b.id, name: f.b.name });
+}
+
 async function priceCard(card) {
   const fights = card.sections.flatMap((s) => s.fights);
   let ok = 0;
   await Promise.all(fights.map(async (f) => {
     try {
-      const p = parseOdds(await get(`${CORE}/events/${f.eventId}/competitions/${f.id}/odds`), { id: f.a.id, name: f.a.name }, { id: f.b.id, name: f.b.name });
+      const p = await fetchOdds(f, get);
       if (p) {
         Object.assign(f.a, p.a); Object.assign(f.b, p.b);
         f.hold = p.hold; f.books = p.books; f.boundBy = p.boundBy; f.priced = true; ok++;

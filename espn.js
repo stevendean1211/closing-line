@@ -81,6 +81,14 @@ function cardState(card, now = Date.now()) {
   return 'pre';
 }
 
+/**
+ * Contender Series is a UFC-promoted prospect showcase, not a UFC card. Books
+ * barely price it and a UFC bettor doesn't want it as their board. It has to be
+ * filtered in two places: here (the scoreboard's featured event) and in
+ * nextCard() (the calendar). Filtering only the calendar leaves DWCS featured.
+ */
+const isDWCS = (name) => /contender series|dwcs/i.test(String(name || ''));
+
 /** Scoreboard JSON -> one structured card. */
 function parseCard(sb) {
   const ev = (sb.events || [])[0];
@@ -315,4 +323,4 @@ function nextCard(sb, currentId, { includeDWCS = false, now = Date.now() } = {})
 /** YYYYMMDD for ESPN's ?dates= filter. */
 const dateParam = (iso) => String(iso || '').slice(0, 10).replace(/-/g, '');
 
-module.exports = { SCOREBOARD, CORE, parseCard, parseCalendar, parseOdds, sectionsByTime, cardState, methodOf, nextCard, dateParam, dec, amer, norm, athleteIdOf, STALE_HOURS };
+module.exports = { SCOREBOARD, CORE, isDWCS, parseCard, parseCalendar, parseOdds, sectionsByTime, cardState, methodOf, nextCard, dateParam, dec, amer, norm, athleteIdOf, STALE_HOURS };

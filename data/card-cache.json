@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-16T04:35:40.283Z",
+  "fetched_at": "2026-08-17T14:36:04.964Z",
   "configured": true,
   "cards": [
     {
@@ -27,10 +27,46 @@
       "state": "pre"
     },
     {
+      "id": "600059993",
+      "name": "UFC Fight Night: Hooker vs. Parnasse",
+      "date": "2026-09-05",
+      "start": "2026-09-05T19:00Z",
+      "venue": null,
+      "count": 0,
+      "pricedCount": 0,
+      "sections": [],
+      "announced": true,
+      "state": "pre"
+    },
+    {
+      "id": "600060772",
+      "name": "Noche UFC: Rodriguez vs. Silva",
+      "date": "2026-09-12",
+      "start": "2026-09-12T21:00Z",
+      "venue": null,
+      "count": 0,
+      "pricedCount": 0,
+      "sections": [],
+      "announced": true,
+      "state": "pre"
+    },
+    {
       "id": "600060963",
       "name": "UFC 331: Van vs. Pantoja 2",
       "date": "2026-09-20",
       "start": "2026-09-20T00:00Z",
+      "venue": null,
+      "count": 0,
+      "pricedCount": 0,
+      "sections": [],
+      "announced": true,
+      "state": "pre"
+    },
+    {
+      "id": "600061266",
+      "name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
+      "date": "2026-09-26",
+      "start": "2026-09-26T22:00Z",
       "venue": null,
       "count": 0,
       "pricedCount": 0,
