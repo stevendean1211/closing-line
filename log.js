@@ -139,6 +139,113 @@ const save = (e) => fs.writeFileSync(e.full, JSON.stringify(e.data, null, 2) + '
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 // ---------------------------------------------------------------------------
+/**
+ * Bulk entry. One pick per line, pipe-separated:
+ *
+ *   selection | odds | book | units | fight (optional)
+ *
+ * CLV grading needs the price you actually took and the book you took it at,
+ * so those aren't optional — a selection alone can't be graded against a close.
+ * Everything else has a sensible default.
+ */
+function parseBulkLine(line, n, base) {
+  const parts = line.split('|').map((x) => x.trim()).filter((x, i) => i === 0 || x !== '');
+  if (parts.length < 2) return { error: 'need at least: selection | odds' };
+
+  const [selection, oddsRaw, book, unitsRaw, fight] = parts;
+  const odds = Number(String(oddsRaw).replace(/[+\s]/g, ''));
+  if (!Number.isInteger(odds) || Math.abs(odds) < 100) return { error: `bad odds "${oddsRaw}"` };
+
+  const units = unitsRaw ? Number(unitsRaw) : 1;
+  if (!Number.isFinite(units) || units <= 0) return { error: `bad units "${unitsRaw}"` };
+
+  const sel = selection.toLowerCase();
+  const market = /submission|sub\b/.test(sel) ? 'method'
+    : /ko|tko|knockout/.test(sel) ? 'method'
+    : /decision|dec\b/.test(sel) ? 'method'
+    : /parlay|\+/.test(sel) ? 'parlay'
+    : /over|under|round/.test(sel) ? 'total'
+    : 'moneyline';
+
+  return {
+    pick: {
+      id: `${base}-${String(n).padStart(2, '0')}`,
+      fight: fight || selection.replace(/\s+(by|ml)\b.*$/i, '').trim(),
+      selection, market, line_taken: odds,
+      book: book || 'DraftKings',
+      units,
+      posted_at: new Date().toISOString(),
+      closing_line: null, result: null,
+    },
+  };
+}
+
+async function cmdBulk(premium) {
+  const dir = premium ? PREMIUM_DIR : PICKS_DIR;
+  const fileArg = (process.argv.find((a) => a.startsWith('--file=')) || '').split('=')[1];
+  console.log(C.b(`\n  Bulk ${premium ? C.y('PAID') : C.g('FREE')} picks\n`));
+  console.log(C.d('  One per line:  selection | odds | book | units | fight'));
+  console.log(C.d('  Book, units and fight are optional (default DraftKings, 1u).\n'));
+  if (!fileArg) {
+    // Pasting several lines at once is unreliable — the terminal delivers them
+    // faster than readline consumes them and the middle ones get swallowed.
+    // Say so plainly rather than letting picks silently disappear.
+    console.log(C.y('  Paste ONE line at a time, Enter after each. Blank line to finish.'));
+    console.log(C.d('  Several at once and some will be dropped — use --file= instead:\n'));
+    console.log(C.d('    node log.js bulk --premium --file=picks.txt\n'));
+  }
+
+  const event = await ask('  Event name:');
+  const date = await ask('  Date (YYYY-MM-DD):', { def: new Date().toISOString().slice(0, 10) });
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) { console.log(C.r('  Bad date.')); return; }
+
+  const file = path.join(dir, `${date}-${slug(event)}.json`);
+  let data = fs.existsSync(file)
+    ? JSON.parse(fs.readFileSync(file, 'utf8'))
+    : (premium ? { event, date, released_at: new Date().toISOString(), picks: [] } : { event, date, picks: [] });
+
+  const base = slug(event).replace(/-/g, '');
+  const show = (p) => console.log(C.g(`      ✓ ${p.selection} ${p.line_taken > 0 ? '+' : ''}${p.line_taken} · ${p.units}u · ${p.book} · ${p.market}`));
+  console.log();
+
+  if (fileArg) {
+    // Reading from a file sidesteps the paste problem entirely.
+    const full = path.isAbsolute(fileArg) ? fileArg : path.join(__dirname, fileArg);
+    if (!fs.existsSync(full)) { console.log(C.r(`  No such file: ${fileArg}\n`)); return; }
+    const lines = fs.readFileSync(full, 'utf8').split('\n')
+      .map((l) => l.trim()).filter((l) => l && !l.startsWith('#'));
+    console.log(C.d(`  Reading ${lines.length} line(s) from ${fileArg}\n`));
+    for (const line of lines) {
+      const r = parseBulkLine(line, data.picks.length + 1, base);
+      if (r.error) { console.log(C.r(`  ✗ ${line}`)); console.log(C.r(`      ${r.error}`)); continue; }
+      data.picks.push(r.pick);
+      show(r.pick);
+    }
+  } else {
+    for (;;) {
+      const line = (await rl.question(`  ${C.c(String(data.picks.length + 1))} > `)).trim();
+      if (!line) break;
+      // A pasted blob arrives as one string with embedded newlines — split it
+      // rather than mangling it into a single unparseable pick.
+      for (const one of line.split(/[\r\n]+/).map((x) => x.trim()).filter(Boolean)) {
+        const r = parseBulkLine(one, data.picks.length + 1, base);
+        if (r.error) { console.log(C.r(`      ${one} — ${r.error}`)); continue; }
+        data.picks.push(r.pick);
+        show(r.pick);
+      }
+    }
+  }
+
+  if (!data.picks.length) { console.log(C.d('\n  Nothing entered.\n')); return; }
+
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(file, JSON.stringify(data, null, 2) + '\n');
+  console.log(C.b(`\n  Wrote ${path.relative(__dirname, file)} — ${data.picks.length} pick(s)\n`));
+  if (premium) console.log(C.y('  PAID. Not rendered into any page. Post them in Whop Forums.\n'));
+  console.log(`    git add data/ && git commit -m "add: ${event} ${premium ? 'premium ' : ''}picks (${data.picks.length})" && git push\n`);
+}
+
+// ---------------------------------------------------------------------------
 async function cmdAdd(premium) {
   const dir = premium ? PREMIUM_DIR : PICKS_DIR;
   console.log(C.b(`\n  Log ${premium ? C.y('PAID') : C.g('FREE')} picks for a card\n`));
@@ -357,7 +464,9 @@ async function cmdStatus() {
 (async () => {
   const cmd = process.argv[2];
   try {
-    if (cmd === 'add') await cmdAdd(process.argv.includes('--premium'));
+    const prem = process.argv.includes('--premium');
+    if (cmd === 'bulk') await cmdBulk(prem);
+    else if (cmd === 'add') await cmdAdd(prem);
     else if (cmd === 'release') await cmdRelease();
     else if (cmd === 'grade') await cmdGrade();
     else if (cmd === 'status') await cmdStatus();
@@ -365,8 +474,10 @@ async function cmdStatus() {
       console.log(`
   ${C.b('Pick logger')}
 
-    node log.js add             log a FREE pick — public immediately
-    node log.js add --premium   log a PAID pick — never enters the HTML
+    node log.js add             log a FREE pick, one field at a time
+    node log.js add --premium   log a PAID pick
+    node log.js bulk            paste several picks at once
+    node log.js bulk --premium  paste several PAID picks
     node log.js grade           fill in closing lines and results
     node log.js release         move graded paid picks to the public record
     node log.js status          what's still open
