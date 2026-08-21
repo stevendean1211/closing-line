@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-20T18:23:55.538Z",
+  "fetched_at": "2026-08-21T00:42:44.542Z",
   "configured": true,
   "cards": [
     {
@@ -579,7 +579,7 @@
       "date": "2026-08-29",
       "start": "2026-08-29T07:00Z",
       "venue": "Shanghai Oriental Sports Center, Shanghai",
-      "count": 9,
+      "count": 10,
       "pricedCount": 0,
       "sections": [
         {
@@ -623,7 +623,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 9,
+              "bout": 10,
               "section": "Main Card",
               "isMain": true
             },
@@ -665,7 +665,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 8,
+              "bout": 9,
               "section": "Main Card",
               "isMain": false
             },
@@ -707,7 +707,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 7,
+              "bout": 8,
               "section": "Main Card",
               "isMain": false
             },
@@ -749,7 +749,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 6,
+              "bout": 7,
               "section": "Main Card",
               "isMain": false
             },
@@ -781,6 +781,48 @@
                 "id": "5122234",
                 "name": "Junior Tafa",
                 "record": "7-6-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "hold": null,
+              "books": 0,
+              "priced": false,
+              "bout": 6,
+              "section": "Main Card",
+              "isMain": false
+            },
+            {
+              "id": "401913129",
+              "eventId": "600060620",
+              "start": "2026-08-29T10:00Z",
+              "weight": "Flyweight",
+              "rounds": 3,
+              "titleFight": false,
+              "state": "pre",
+              "completed": false,
+              "winnerId": null,
+              "winnerName": null,
+              "method": null,
+              "endedAt": null,
+              "a": {
+                "id": "5264405",
+                "name": "Bilal Hasan",
+                "record": "9-0-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "b": {
+                "id": "5399264",
+                "name": "Nilson Rojas",
+                "record": "9-0-0",
                 "champion": false,
                 "won": false,
                 "best": null,
@@ -981,7 +1023,7 @@
       "date": "2026-09-05",
       "start": "2026-09-05T16:00Z",
       "venue": "Accor Arena, Paris",
-      "count": 11,
+      "count": 12,
       "pricedCount": 0,
       "sections": [
         {
@@ -1025,7 +1067,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 11,
+              "bout": 12,
               "section": "Main Card",
               "isMain": true
             },
@@ -1067,7 +1109,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 10,
+              "bout": 11,
               "section": "Main Card",
               "isMain": false
             },
@@ -1109,7 +1151,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 9,
+              "bout": 10,
               "section": "Main Card",
               "isMain": false
             },
@@ -1151,7 +1193,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 8,
+              "bout": 9,
               "section": "Main Card",
               "isMain": false
             },
@@ -1193,7 +1235,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 7,
+              "bout": 8,
               "section": "Main Card",
               "isMain": false
             }
@@ -1240,7 +1282,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 6,
+              "bout": 7,
               "section": "Prelims",
               "isMain": false
             },
@@ -1282,7 +1324,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 5,
+              "bout": 6,
               "section": "Prelims",
               "isMain": false
             },
@@ -1324,7 +1366,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 4,
+              "bout": 5,
               "section": "Prelims",
               "isMain": false
             },
@@ -1366,7 +1408,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 3,
+              "bout": 4,
               "section": "Prelims",
               "isMain": false
             },
@@ -1408,7 +1450,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 2,
+              "bout": 3,
               "section": "Prelims",
               "isMain": false
             },
@@ -1440,6 +1482,48 @@
                 "id": "4693161",
                 "name": "Luis Felipe Dias",
                 "record": "18-5-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "hold": null,
+              "books": 0,
+              "priced": false,
+              "bout": 2,
+              "section": "Prelims",
+              "isMain": false
+            },
+            {
+              "id": "401913130",
+              "eventId": "600059993",
+              "start": "2026-09-05T16:00Z",
+              "weight": "W Strawweight",
+              "rounds": 3,
+              "titleFight": false,
+              "state": "pre",
+              "completed": false,
+              "winnerId": null,
+              "winnerName": null,
+              "method": null,
+              "endedAt": null,
+              "a": {
+                "id": "5345643",
+                "name": "Delphine Benouaich",
+                "record": "7-2-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "b": {
+                "id": "5308770",
+                "name": "Sofia Montenegro",
+                "record": "6-2-0",
                 "champion": false,
                 "won": false,
                 "best": null,
