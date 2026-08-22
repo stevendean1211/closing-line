@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-21T18:22:51.715Z",
+  "fetched_at": "2026-08-22T00:40:33.710Z",
   "configured": true,
   "cards": [
     {
@@ -1642,6 +1642,48 @@
               "isMain": false
             },
             {
+              "id": "401908491",
+              "eventId": "600060772",
+              "start": "2026-09-12T21:00Z",
+              "weight": "Featherweight",
+              "rounds": 3,
+              "titleFight": false,
+              "state": "pre",
+              "completed": false,
+              "winnerId": null,
+              "winnerName": null,
+              "method": null,
+              "endedAt": null,
+              "a": {
+                "id": "5212849",
+                "name": "Tommy McMillen",
+                "record": "11-0-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "b": {
+                "id": "5302274",
+                "name": "Marwan Rahiki",
+                "record": "9-0-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "hold": null,
+              "books": 0,
+              "priced": false,
+              "bout": 8,
+              "section": "Main Card",
+              "isMain": false
+            },
+            {
               "id": "401897734",
               "eventId": "600060772",
               "start": "2026-09-12T21:00Z",
@@ -1679,7 +1721,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 8,
+              "bout": 7,
               "section": "Main Card",
               "isMain": false
             },
@@ -1721,7 +1763,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 7,
+              "bout": 6,
               "section": "Main Card",
               "isMain": false
             },
@@ -1753,48 +1795,6 @@
                 "id": "4074001",
                 "name": "Dan Ige",
                 "record": "19-11-0",
-                "champion": false,
-                "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
-              },
-              "hold": null,
-              "books": 0,
-              "priced": false,
-              "bout": 6,
-              "section": "Main Card",
-              "isMain": false
-            },
-            {
-              "id": "401908491",
-              "eventId": "600060772",
-              "start": "2026-09-12T21:00Z",
-              "weight": "Featherweight",
-              "rounds": 3,
-              "titleFight": false,
-              "state": "pre",
-              "completed": false,
-              "winnerId": null,
-              "winnerName": null,
-              "method": null,
-              "endedAt": null,
-              "a": {
-                "id": "5212849",
-                "name": "Tommy McMillen",
-                "record": "11-0-0",
-                "champion": false,
-                "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
-              },
-              "b": {
-                "id": "5302274",
-                "name": "Marwan Rahiki",
-                "record": "9-0-0",
                 "champion": false,
                 "won": false,
                 "best": null,
