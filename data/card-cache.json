@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-22T21:46:37.422Z",
+  "fetched_at": "2026-08-22T22:20:28.383Z",
   "configured": true,
   "cards": [
     {
@@ -405,7 +405,7 @@
               "weight": "Featherweight",
               "rounds": 3,
               "titleFight": false,
-              "state": "pre",
+              "state": "in",
               "completed": false,
               "winnerId": null,
               "winnerName": null,
@@ -447,12 +447,12 @@
               "weight": "Lightweight",
               "rounds": 3,
               "titleFight": false,
-              "state": "in",
-              "completed": false,
-              "winnerId": null,
-              "winnerName": null,
-              "method": null,
-              "endedAt": null,
+              "state": "post",
+              "completed": true,
+              "winnerId": "5397038",
+              "winnerName": "Stan Dorsainvil",
+              "method": "Decision",
+              "endedAt": "R3 5:00",
               "a": {
                 "id": "5085318",
                 "name": "Gauge Young",
@@ -467,9 +467,9 @@
               "b": {
                 "id": "5397038",
                 "name": "Stan Dorsainvil",
-                "record": "5-0-0",
+                "record": "6-0-0",
                 "champion": false,
-                "won": false,
+                "won": true,
                 "best": null,
                 "book": null,
                 "consensus": null,
@@ -498,7 +498,7 @@
               "a": {
                 "id": "5057023",
                 "name": "Wes Schultz",
-                "record": "9-3-0",
+                "record": "9-4-0",
                 "champion": false,
                 "won": false,
                 "best": null,
@@ -509,7 +509,7 @@
               "b": {
                 "id": "5291733",
                 "name": "Jackson McVey",
-                "record": "7-2-0",
+                "record": "8-2-0",
                 "champion": false,
                 "won": true,
                 "best": null,
