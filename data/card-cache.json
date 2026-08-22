@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-22T20:49:18.692Z",
+  "fetched_at": "2026-08-22T21:20:43.285Z",
   "configured": true,
   "cards": [
     {
@@ -531,7 +531,7 @@
               "weight": "W Strawweight",
               "rounds": 3,
               "titleFight": false,
-              "state": "pre",
+              "state": "in",
               "completed": false,
               "winnerId": null,
               "winnerName": null,
@@ -569,7 +569,7 @@
           ]
         }
       ],
-      "state": "pre",
+      "state": "live",
       "finished": false
     },
     {
