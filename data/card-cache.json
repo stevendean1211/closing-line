@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-23T05:00:27.923Z",
+  "fetched_at": "2026-08-23T06:24:18.841Z",
   "configured": true,
   "cards": [
     {
@@ -571,18 +571,6 @@
       ],
       "state": "pre",
       "finished": false
-    },
-    {
-      "id": "600060493",
-      "name": "UFC Fight Night: Hernandez vs. Rodrigues",
-      "date": "2026-08-23",
-      "start": "2026-08-23T00:00Z",
-      "venue": null,
-      "count": 0,
-      "pricedCount": 0,
-      "sections": [],
-      "announced": true,
-      "state": "pre"
     },
     {
       "id": "600059993",
