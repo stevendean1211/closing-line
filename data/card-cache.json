@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-23T06:24:18.841Z",
+  "fetched_at": "2026-08-23T12:19:34.401Z",
   "configured": true,
   "cards": [
     {
@@ -1639,6 +1639,114 @@
       "sections": [],
       "announced": true,
       "state": "pre"
+    },
+    {
+      "id": "600061266",
+      "name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
+      "short": "UFC Fight Night",
+      "date": "2026-09-26",
+      "start": "2026-09-26T19:00Z",
+      "venue": "Meta APEX, Las Vegas, NV",
+      "count": 2,
+      "pricedCount": 0,
+      "sections": [
+        {
+          "label": "Main Card",
+          "fights": [
+            {
+              "id": "401911630",
+              "eventId": "600061266",
+              "start": "2026-09-26T22:00Z",
+              "weight": "Bantamweight",
+              "rounds": 5,
+              "titleFight": false,
+              "state": "pre",
+              "completed": false,
+              "winnerId": null,
+              "winnerName": null,
+              "method": null,
+              "endedAt": null,
+              "a": {
+                "id": "5088844",
+                "name": "Raul Rosas Jr.",
+                "record": "12-1-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "b": {
+                "id": "3075570",
+                "name": "Raoni Barcelos",
+                "record": "22-5-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "hold": null,
+              "books": 0,
+              "priced": false,
+              "bout": 2,
+              "section": "Main Card",
+              "isMain": true
+            }
+          ]
+        },
+        {
+          "label": "Prelims",
+          "fights": [
+            {
+              "id": "401911631",
+              "eventId": "600061266",
+              "start": "2026-09-26T19:00Z",
+              "weight": null,
+              "rounds": 3,
+              "titleFight": false,
+              "state": "pre",
+              "completed": false,
+              "winnerId": null,
+              "winnerName": null,
+              "method": null,
+              "endedAt": null,
+              "a": {
+                "id": "2431356",
+                "name": "TBA",
+                "record": null,
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "b": {
+                "id": "4402367",
+                "name": "Opponent TBA",
+                "record": null,
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "hold": null,
+              "books": 0,
+              "priced": false,
+              "bout": 1,
+              "section": "Prelims",
+              "isMain": false
+            }
+          ]
+        }
+      ],
+      "state": "pre",
+      "finished": false
     }
   ]
 }
