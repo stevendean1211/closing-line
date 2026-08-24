@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-24T12:27:46.493Z",
+  "fetched_at": "2026-08-24T18:25:24.216Z",
   "configured": true,
   "cards": [
     {
@@ -9,7 +9,7 @@
       "date": "2026-08-29",
       "start": "2026-08-29T07:00Z",
       "venue": "Shanghai Oriental Sports Center, Shanghai",
-      "count": 13,
+      "count": 12,
       "pricedCount": 0,
       "sections": [
         {
@@ -53,7 +53,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 13,
+              "bout": 12,
               "section": "Main Card",
               "isMain": true
             },
@@ -95,7 +95,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 12,
+              "bout": 11,
               "section": "Main Card",
               "isMain": false
             },
@@ -137,7 +137,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 11,
+              "bout": 10,
               "section": "Main Card",
               "isMain": false
             },
@@ -169,48 +169,6 @@
                 "id": "4405109",
                 "name": "Sumudaerji",
                 "record": "19-7-0",
-                "champion": false,
-                "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
-              },
-              "hold": null,
-              "books": 0,
-              "priced": false,
-              "bout": 10,
-              "section": "Main Card",
-              "isMain": false
-            },
-            {
-              "id": "401887538",
-              "eventId": "600060620",
-              "start": "2026-08-29T10:00Z",
-              "weight": "Light Heavyweight",
-              "rounds": 3,
-              "titleFight": false,
-              "state": "pre",
-              "completed": false,
-              "winnerId": null,
-              "winnerName": null,
-              "method": null,
-              "endedAt": null,
-              "a": {
-                "id": "5292011",
-                "name": "Ce Liu",
-                "record": "3-1-0",
-                "champion": false,
-                "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
-              },
-              "b": {
-                "id": "5122234",
-                "name": "Junior Tafa",
-                "record": "7-6-0",
                 "champion": false,
                 "won": false,
                 "best": null,
