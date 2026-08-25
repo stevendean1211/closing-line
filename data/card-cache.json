@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-25T12:28:07.648Z",
+  "fetched_at": "2026-08-25T18:24:31.134Z",
   "configured": true,
   "cards": [
     {
@@ -187,7 +187,7 @@
               "id": "401914040",
               "eventId": "600060620",
               "start": "2026-08-29T10:00Z",
-              "weight": null,
+              "weight": "Light Heavyweight",
               "rounds": 3,
               "titleFight": false,
               "state": "pre",
