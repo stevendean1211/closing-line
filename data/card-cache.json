@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-25T00:40:58.257Z",
+  "fetched_at": "2026-08-25T06:28:33.172Z",
   "configured": true,
   "cards": [
     {
@@ -9,7 +9,7 @@
       "date": "2026-08-29",
       "start": "2026-08-29T07:00Z",
       "venue": "Shanghai Oriental Sports Center, Shanghai",
-      "count": 12,
+      "count": 13,
       "pricedCount": 0,
       "sections": [
         {
@@ -53,7 +53,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 12,
+              "bout": 13,
               "section": "Main Card",
               "isMain": true
             },
@@ -95,7 +95,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 11,
+              "bout": 12,
               "section": "Main Card",
               "isMain": false
             },
@@ -137,7 +137,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 10,
+              "bout": 11,
               "section": "Main Card",
               "isMain": false
             },
@@ -169,6 +169,48 @@
                 "id": "4405109",
                 "name": "Sumudaerji",
                 "record": "19-7-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "hold": null,
+              "books": 0,
+              "priced": false,
+              "bout": 10,
+              "section": "Main Card",
+              "isMain": false
+            },
+            {
+              "id": "401914040",
+              "eventId": "600060620",
+              "start": "2026-08-29T10:00Z",
+              "weight": null,
+              "rounds": 3,
+              "titleFight": false,
+              "state": "pre",
+              "completed": false,
+              "winnerId": null,
+              "winnerName": null,
+              "method": null,
+              "endedAt": null,
+              "a": {
+                "id": "5292011",
+                "name": "Liu Ce",
+                "record": "3-1-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "b": {
+                "id": "5312089",
+                "name": "Levi Rodrigues Jr.",
+                "record": "5-1-0",
                 "champion": false,
                 "won": false,
                 "best": null,
@@ -246,7 +288,7 @@
               "a": {
                 "id": "5145018",
                 "name": "Namsrai Batbayar",
-                "record": "9-1-0",
+                "record": "10-1-0",
                 "champion": false,
                 "won": false,
                 "best": null,
