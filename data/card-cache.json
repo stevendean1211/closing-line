@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-25T18:24:31.134Z",
+  "fetched_at": "2026-08-26T00:42:10.208Z",
   "configured": true,
   "cards": [
     {
@@ -1107,7 +1107,7 @@
       "date": "2026-09-12",
       "start": "2026-09-12T18:00Z",
       "venue": "Desert Diamond Arena, Glendale, AZ",
-      "count": 12,
+      "count": 11,
       "pricedCount": 0,
       "sections": [
         {
@@ -1151,7 +1151,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 12,
+              "bout": 11,
               "section": "Main Card",
               "isMain": true
             },
@@ -1193,7 +1193,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 11,
+              "bout": 10,
               "section": "Main Card",
               "isMain": false
             },
@@ -1235,7 +1235,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 10,
+              "bout": 9,
               "section": "Main Card",
               "isMain": false
             },
@@ -1277,7 +1277,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 9,
+              "bout": 8,
               "section": "Main Card",
               "isMain": false
             },
@@ -1319,7 +1319,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 8,
+              "bout": 7,
               "section": "Main Card",
               "isMain": false
             },
@@ -1361,7 +1361,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 7,
+              "bout": 6,
               "section": "Main Card",
               "isMain": false
             }
@@ -1408,7 +1408,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 6,
+              "bout": 5,
               "section": "Prelims",
               "isMain": false
             },
@@ -1440,48 +1440,6 @@
                 "id": "3132513",
                 "name": "Muslim Salikhov",
                 "record": "22-6-0",
-                "champion": false,
-                "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
-              },
-              "hold": null,
-              "books": 0,
-              "priced": false,
-              "bout": 5,
-              "section": "Prelims",
-              "isMain": false
-            },
-            {
-              "id": "401897735",
-              "eventId": "600060772",
-              "start": "2026-09-12T18:00Z",
-              "weight": "Middleweight",
-              "rounds": 3,
-              "titleFight": false,
-              "state": "pre",
-              "completed": false,
-              "winnerId": null,
-              "winnerName": null,
-              "method": null,
-              "endedAt": null,
-              "a": {
-                "id": "3026011",
-                "name": "Kelvin Gastelum",
-                "record": "21-11-0",
-                "champion": false,
-                "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
-              },
-              "b": {
-                "id": "5149815",
-                "name": "Yousri Belgaroui",
-                "record": "10-3-0",
                 "champion": false,
                 "won": false,
                 "best": null,
