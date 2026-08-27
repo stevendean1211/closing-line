@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-26T19:34:44.868Z",
+  "fetched_at": "2026-08-27T05:47:34.625Z",
   "configured": true,
   "cards": [
     {
@@ -1107,54 +1107,12 @@
       "date": "2026-09-12",
       "start": "2026-09-12T18:00Z",
       "venue": "Desert Diamond Arena, Glendale, AZ",
-      "count": 11,
+      "count": 10,
       "pricedCount": 0,
       "sections": [
         {
           "label": "Main Card",
           "fights": [
-            {
-              "id": "401897730",
-              "eventId": "600060772",
-              "start": "2026-09-12T21:00Z",
-              "weight": "Featherweight",
-              "rounds": 5,
-              "titleFight": false,
-              "state": "pre",
-              "completed": false,
-              "winnerId": null,
-              "winnerName": null,
-              "method": null,
-              "endedAt": null,
-              "a": {
-                "id": "3155420",
-                "name": "Yair Rodriguez",
-                "record": "21-5-0",
-                "champion": false,
-                "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
-              },
-              "b": {
-                "id": "5145766",
-                "name": "Jean Silva",
-                "record": "17-3-0",
-                "champion": false,
-                "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
-              },
-              "hold": null,
-              "books": 0,
-              "priced": false,
-              "bout": 11,
-              "section": "Main Card",
-              "isMain": true
-            },
             {
               "id": "401897731",
               "eventId": "600060772",
@@ -1195,7 +1153,7 @@
               "priced": false,
               "bout": 10,
               "section": "Main Card",
-              "isMain": false
+              "isMain": true
             },
             {
               "id": "401908491",
@@ -1322,11 +1280,16 @@
               "bout": 7,
               "section": "Main Card",
               "isMain": false
-            },
+            }
+          ]
+        },
+        {
+          "label": "Prelims",
+          "fights": [
             {
               "id": "401905192",
               "eventId": "600060772",
-              "start": "2026-09-12T21:00Z",
+              "start": "2026-09-12T18:00Z",
               "weight": "Bantamweight",
               "rounds": 3,
               "titleFight": false,
@@ -1362,14 +1325,9 @@
               "books": 0,
               "priced": false,
               "bout": 6,
-              "section": "Main Card",
+              "section": "Prelims",
               "isMain": false
-            }
-          ]
-        },
-        {
-          "label": "Prelims",
-          "fights": [
+            },
             {
               "id": "401897732",
               "eventId": "600060772",
