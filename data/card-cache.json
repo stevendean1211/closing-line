@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-31T12:10:03.388Z",
+  "fetched_at": "2026-08-31T22:11:27.128Z",
   "configured": true,
   "cards": [
     {
@@ -456,7 +456,7 @@
               "a": {
                 "id": "5142304",
                 "name": "Michael Aljarouj",
-                "record": "0-1-0",
+                "record": "12-3-0",
                 "champion": false,
                 "won": false,
                 "best": null,
