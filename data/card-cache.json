@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-01T15:46:05.522Z",
+  "fetched_at": "2026-09-01T20:18:43.079Z",
   "configured": true,
   "cards": [
     {
@@ -9,7 +9,7 @@
       "date": "2026-09-05",
       "start": "2026-09-05T16:00Z",
       "venue": "Accor Arena, Paris",
-      "count": 14,
+      "count": 13,
       "pricedCount": 0,
       "sections": [
         {
@@ -53,7 +53,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 14,
+              "bout": 13,
               "section": "Main Card",
               "isMain": true
             },
@@ -95,7 +95,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 13,
+              "bout": 12,
               "section": "Main Card",
               "isMain": false
             },
@@ -137,7 +137,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 12,
+              "bout": 11,
               "section": "Main Card",
               "isMain": false
             },
@@ -179,7 +179,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 11,
+              "bout": 10,
               "section": "Main Card",
               "isMain": false
             },
@@ -221,7 +221,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 10,
+              "bout": 9,
               "section": "Main Card",
               "isMain": false
             },
@@ -263,7 +263,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 9,
+              "bout": 8,
               "section": "Main Card",
               "isMain": false
             }
@@ -310,7 +310,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 8,
+              "bout": 7,
               "section": "Prelims",
               "isMain": false
             },
@@ -352,7 +352,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 7,
+              "bout": 6,
               "section": "Prelims",
               "isMain": false
             },
@@ -384,48 +384,6 @@
                 "id": "4279621",
                 "name": "Modestas Bukauskas",
                 "record": "20-7-0",
-                "champion": false,
-                "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
-              },
-              "hold": null,
-              "books": 0,
-              "priced": false,
-              "bout": 6,
-              "section": "Prelims",
-              "isMain": false
-            },
-            {
-              "id": "401902946",
-              "eventId": "600059993",
-              "start": "2026-09-05T16:00Z",
-              "weight": "Featherweight",
-              "rounds": 3,
-              "titleFight": false,
-              "state": "pre",
-              "completed": false,
-              "winnerId": null,
-              "winnerName": null,
-              "method": null,
-              "endedAt": null,
-              "a": {
-                "id": "3950354",
-                "name": "Nathaniel Wood",
-                "record": "23-6-0",
-                "champion": false,
-                "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
-              },
-              "b": {
-                "id": "4914573",
-                "name": "Mairon Santos",
-                "record": "18-1-0",
                 "champion": false,
                 "won": false,
                 "best": null,
