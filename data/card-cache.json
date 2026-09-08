@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-07T20:54:54.851Z",
+  "fetched_at": "2026-09-08T02:06:05.911Z",
   "configured": true,
   "cards": [
     {
@@ -489,25 +489,25 @@
                 "record": "19-4-0",
                 "champion": false,
                 "won": false,
-                "best": 145,
+                "best": 150,
                 "book": "DraftKings",
-                "consensus": 145,
-                "fair": 156,
-                "implied": 39.1
+                "consensus": 150,
+                "fair": 161,
+                "implied": 38.4
               },
               "b": {
                 "id": "4773371",
                 "name": "Rongzhu",
-                "record": "27-6-0",
+                "record": "28-6-0",
                 "champion": false,
                 "won": false,
-                "best": -175,
+                "best": -180,
                 "book": "DraftKings",
-                "consensus": -175,
-                "fair": -156,
-                "implied": 60.9
+                "consensus": -180,
+                "fair": -161,
+                "implied": 61.6
               },
-              "hold": 4.45,
+              "hold": 4.29,
               "books": 1,
               "priced": true,
               "bout": 3,
