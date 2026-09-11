@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-11T15:32:05.700Z",
+  "fetched_at": "2026-09-11T20:13:05.472Z",
   "configured": true,
   "cards": [
     {
@@ -169,11 +169,11 @@
                 "record": "13-2-0",
                 "champion": false,
                 "won": false,
-                "best": -265,
+                "best": -270,
                 "book": "DraftKings",
-                "consensus": -265,
-                "fair": -229,
-                "implied": 69.6
+                "consensus": -270,
+                "fair": -234,
+                "implied": 70
               },
               "b": {
                 "id": "3136287",
@@ -181,13 +181,13 @@
                 "record": "17-5-1",
                 "champion": false,
                 "won": false,
-                "best": 215,
+                "best": 220,
                 "book": "DraftKings",
-                "consensus": 215,
-                "fair": 229,
-                "implied": 30.4
+                "consensus": 220,
+                "fair": 234,
+                "implied": 30
               },
-              "hold": 4.35,
+              "hold": 4.22,
               "books": 1,
               "priced": true,
               "bout": 10,
@@ -489,11 +489,11 @@
                 "record": "19-4-0",
                 "champion": false,
                 "won": false,
-                "best": 140,
+                "best": 142,
                 "book": "DraftKings",
-                "consensus": 140,
-                "fair": 150,
-                "implied": 40
+                "consensus": 142,
+                "fair": 152,
+                "implied": 39.6
               },
               "b": {
                 "id": "4773371",
@@ -501,13 +501,13 @@
                 "record": "28-6-0",
                 "champion": false,
                 "won": false,
-                "best": -166,
+                "best": -170,
                 "book": "DraftKings",
-                "consensus": -166,
-                "fair": -150,
-                "implied": 60
+                "consensus": -170,
+                "fair": -152,
+                "implied": 60.4
               },
-              "hold": 4.07,
+              "hold": 4.29,
               "books": 1,
               "priced": true,
               "bout": 3,
