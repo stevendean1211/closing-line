@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-20T02:24:41.533Z",
+  "fetched_at": "2026-09-20T02:58:17.441Z",
   "configured": true,
   "cards": [
     {
@@ -34,11 +34,11 @@
                 "record": "17-2-0",
                 "champion": true,
                 "won": false,
-                "best": -162,
+                "best": -166,
                 "book": "DraftKings",
-                "consensus": -162,
-                "fair": -148,
-                "implied": 59.7
+                "consensus": -166,
+                "fair": -150,
+                "implied": 60
               },
               "b": {
                 "id": "2560746",
@@ -49,10 +49,10 @@
                 "best": 140,
                 "book": "DraftKings",
                 "consensus": 140,
-                "fair": 148,
-                "implied": 40.3
+                "fair": 150,
+                "implied": 40
               },
-              "hold": 3.5,
+              "hold": 4.07,
               "books": 1,
               "priced": true,
               "bout": 12,
@@ -67,7 +67,7 @@
               "weight": "Lightweight",
               "rounds": 5,
               "titleFight": false,
-              "state": "pre",
+              "state": "in",
               "completed": false,
               "winnerId": null,
               "winnerName": null,
@@ -79,11 +79,11 @@
                 "record": "23-3-0",
                 "champion": false,
                 "won": false,
-                "best": -305,
+                "best": -278,
                 "book": "DraftKings",
-                "consensus": -305,
-                "fair": -260,
-                "implied": 72.2
+                "consensus": -278,
+                "fair": -239,
+                "implied": 70.5
               },
               "b": {
                 "id": "5122238",
@@ -91,13 +91,13 @@
                 "record": "14-2-0",
                 "champion": false,
                 "won": false,
-                "best": 245,
+                "best": 225,
                 "book": "DraftKings",
-                "consensus": 245,
-                "fair": 260,
-                "implied": 27.8
+                "consensus": 225,
+                "fair": 239,
+                "implied": 29.5
               },
-              "hold": 4.29,
+              "hold": 4.31,
               "books": 1,
               "priced": true,
               "bout": 11,
@@ -112,18 +112,18 @@
               "weight": "Featherweight",
               "rounds": 3,
               "titleFight": false,
-              "state": "in",
-              "completed": false,
-              "winnerId": null,
-              "winnerName": null,
-              "method": null,
-              "endedAt": null,
+              "state": "post",
+              "completed": true,
+              "winnerId": "2532870",
+              "winnerName": "Patricio Pitbull",
+              "method": "KO/TKO",
+              "endedAt": "R1 3:28",
               "a": {
                 "id": "2532870",
                 "name": "Patricio Pitbull",
-                "record": "37-9-0",
+                "record": "38-9-0",
                 "champion": false,
-                "won": false,
+                "won": true,
                 "best": 215,
                 "book": "DraftKings",
                 "consensus": 215,
@@ -133,7 +133,7 @@
               "b": {
                 "id": "3093026",
                 "name": "Dooho Choi",
-                "record": "17-4-1",
+                "record": "17-5-1",
                 "champion": false,
                 "won": false,
                 "best": -265,
@@ -178,7 +178,7 @@
               "b": {
                 "id": "5240957",
                 "name": "Sean Sharaf",
-                "record": "4-2-0",
+                "record": "5-2-0",
                 "champion": false,
                 "won": true,
                 "best": 850,
