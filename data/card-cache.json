@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-28T12:22:17.939Z",
+  "fetched_at": "2026-09-28T22:45:33.199Z",
   "configured": true,
   "cards": [
     {
@@ -9,8 +9,8 @@
       "date": "2026-10-03",
       "start": "2026-10-03T20:00Z",
       "venue": "Delta Center, Salt Lake City, UT",
-      "count": 13,
-      "pricedCount": 11,
+      "count": 14,
+      "pricedCount": 13,
       "sections": [
         {
           "label": "Main Card",
@@ -34,10 +34,11 @@
                 "record": "20-5-1",
                 "champion": false,
                 "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
+                "best": -205,
+                "book": "DraftKings",
+                "consensus": -205,
+                "fair": -181,
+                "implied": 64.5
               },
               "b": {
                 "id": "4215200",
@@ -45,17 +46,19 @@
                 "record": "10-1-0",
                 "champion": false,
                 "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
+                "best": 170,
+                "book": "DraftKings",
+                "consensus": 170,
+                "fair": 181,
+                "implied": 35.5
               },
-              "hold": null,
-              "books": 0,
-              "priced": false,
-              "bout": 13,
+              "hold": 4.25,
+              "books": 1,
+              "priced": true,
+              "bout": 14,
               "section": "Main Card",
-              "isMain": true
+              "isMain": true,
+              "boundBy": "athlete-id"
             },
             {
               "id": "401907087",
@@ -97,7 +100,7 @@
               "hold": 4.22,
               "books": 1,
               "priced": true,
-              "bout": 12,
+              "bout": 13,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -121,11 +124,11 @@
                 "record": "36-17-1",
                 "champion": false,
                 "won": false,
-                "best": 200,
+                "best": 205,
                 "book": "DraftKings",
-                "consensus": 200,
-                "fair": 213,
-                "implied": 31.9
+                "consensus": 205,
+                "fair": 218,
+                "implied": 31.5
               },
               "b": {
                 "id": "5074131",
@@ -133,16 +136,16 @@
                 "record": "16-3-0",
                 "champion": false,
                 "won": false,
-                "best": -245,
+                "best": -250,
                 "book": "DraftKings",
-                "consensus": -245,
-                "fair": -213,
-                "implied": 68.1
+                "consensus": -250,
+                "fair": -218,
+                "implied": 68.5
               },
-              "hold": 4.35,
+              "hold": 4.22,
               "books": 1,
               "priced": true,
-              "bout": 11,
+              "bout": 12,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -187,7 +190,7 @@
               "hold": 4.25,
               "books": 1,
               "priced": true,
-              "bout": 10,
+              "bout": 11,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -232,7 +235,7 @@
               "hold": 4.27,
               "books": 1,
               "priced": true,
-              "bout": 9,
+              "bout": 10,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -282,7 +285,7 @@
               "hold": 4.2,
               "books": 1,
               "priced": true,
-              "bout": 8,
+              "bout": 9,
               "section": "Prelims",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -327,7 +330,7 @@
               "hold": 4.17,
               "books": 1,
               "priced": true,
-              "bout": 7,
+              "bout": 8,
               "section": "Prelims",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -372,7 +375,7 @@
               "hold": 4.32,
               "books": 1,
               "priced": true,
-              "bout": 6,
+              "bout": 7,
               "section": "Prelims",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -396,10 +399,11 @@
                 "record": "8-0-0",
                 "champion": false,
                 "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
+                "best": -440,
+                "book": "DraftKings",
+                "consensus": -440,
+                "fair": -359,
+                "implied": 78.2
               },
               "b": {
                 "id": "5450121",
@@ -407,17 +411,19 @@
                 "record": "6-0-0",
                 "champion": false,
                 "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
+                "best": 340,
+                "book": "DraftKings",
+                "consensus": 340,
+                "fair": 359,
+                "implied": 21.8
               },
-              "hold": null,
-              "books": 0,
-              "priced": false,
-              "bout": 5,
+              "hold": 4.21,
+              "books": 1,
+              "priced": true,
+              "bout": 6,
               "section": "Prelims",
-              "isMain": false
+              "isMain": false,
+              "boundBy": "athlete-id"
             }
           ]
         },
@@ -464,7 +470,7 @@
               "hold": 4.18,
               "books": 1,
               "priced": true,
-              "bout": 4,
+              "bout": 5,
               "section": "Early Prelims",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -509,7 +515,7 @@
               "hold": 4.33,
               "books": 1,
               "priced": true,
-              "bout": 3,
+              "bout": 4,
               "section": "Early Prelims",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -533,11 +539,11 @@
                 "record": "19-10-1",
                 "champion": false,
                 "won": false,
-                "best": 114,
+                "best": 120,
                 "book": "DraftKings",
-                "consensus": 114,
-                "fair": 123,
-                "implied": 44.9
+                "consensus": 120,
+                "fair": 129,
+                "implied": 43.7
               },
               "b": {
                 "id": "4412813",
@@ -545,19 +551,61 @@
                 "record": "25-8-0",
                 "champion": false,
                 "won": false,
-                "best": -135,
+                "best": -142,
                 "book": "DraftKings",
-                "consensus": -135,
-                "fair": -123,
-                "implied": 55.1
+                "consensus": -142,
+                "fair": -129,
+                "implied": 56.3
               },
-              "hold": 4.18,
+              "hold": 4.13,
               "books": 1,
               "priced": true,
-              "bout": 2,
+              "bout": 3,
               "section": "Early Prelims",
               "isMain": false,
               "boundBy": "athlete-id"
+            },
+            {
+              "id": "401926808",
+              "eventId": "600061182",
+              "start": "2026-10-03T20:00Z",
+              "weight": "Welterweight",
+              "rounds": 3,
+              "titleFight": false,
+              "state": "pre",
+              "completed": false,
+              "winnerId": null,
+              "winnerName": null,
+              "method": null,
+              "endedAt": null,
+              "a": {
+                "id": "5149961",
+                "name": "Jacobe Smith",
+                "record": "12-0-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "b": {
+                "id": "5311402",
+                "name": "Bruce Whitehead",
+                "record": "8-2-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "hold": null,
+              "books": 0,
+              "priced": false,
+              "bout": 2,
+              "section": "Early Prelims",
+              "isMain": false
             },
             {
               "id": "401907089",
