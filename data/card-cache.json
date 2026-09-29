@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-29T17:16:35.458Z",
+  "fetched_at": "2026-09-29T21:39:20.006Z",
   "configured": true,
   "cards": [
     {
@@ -264,11 +264,11 @@
                 "record": "7-1-0",
                 "champion": false,
                 "won": false,
-                "best": -166,
+                "best": -162,
                 "book": "DraftKings",
-                "consensus": -166,
-                "fair": -150,
-                "implied": 60
+                "consensus": -162,
+                "fair": -146,
+                "implied": 59.3
               },
               "b": {
                 "id": "5099732",
@@ -276,13 +276,13 @@
                 "record": "13-3-0",
                 "champion": false,
                 "won": false,
-                "best": 140,
+                "best": 136,
                 "book": "DraftKings",
-                "consensus": 140,
-                "fair": 150,
-                "implied": 40
+                "consensus": 136,
+                "fair": 146,
+                "implied": 40.7
               },
-              "hold": 4.07,
+              "hold": 4.2,
               "books": 1,
               "priced": true,
               "bout": 9,
@@ -309,11 +309,11 @@
                 "record": "10-1-0",
                 "champion": false,
                 "won": false,
-                "best": -485,
+                "best": -550,
                 "book": "DraftKings",
-                "consensus": -485,
-                "fair": -390,
-                "implied": 79.6
+                "consensus": -550,
+                "fair": -444,
+                "implied": 81.6
               },
               "b": {
                 "id": "5211225",
@@ -321,13 +321,13 @@
                 "record": "10-5-0",
                 "champion": false,
                 "won": false,
-                "best": 370,
+                "best": 425,
                 "book": "DraftKings",
-                "consensus": 370,
-                "fair": 390,
-                "implied": 20.4
+                "consensus": 425,
+                "fair": 444,
+                "implied": 18.4
               },
-              "hold": 4.18,
+              "hold": 3.66,
               "books": 1,
               "priced": true,
               "bout": 8,
@@ -399,11 +399,11 @@
                 "record": "8-0-0",
                 "champion": false,
                 "won": false,
-                "best": -500,
+                "best": -535,
                 "book": "DraftKings",
-                "consensus": -500,
-                "fair": -400,
-                "implied": 80
+                "consensus": -535,
+                "fair": -421,
+                "implied": 80.8
               },
               "b": {
                 "id": "5450121",
@@ -411,13 +411,13 @@
                 "record": "6-0-0",
                 "champion": false,
                 "won": false,
-                "best": 380,
+                "best": 400,
                 "book": "DraftKings",
-                "consensus": 380,
-                "fair": 400,
-                "implied": 20
+                "consensus": 400,
+                "fair": 421,
+                "implied": 19.2
               },
-              "hold": 4.17,
+              "hold": 4.25,
               "books": 1,
               "priced": true,
               "bout": 6,
