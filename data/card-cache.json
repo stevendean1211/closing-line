@@ -1,7 +1,19 @@
 {
-  "fetched_at": "2026-10-04T02:24:50.906Z",
+  "fetched_at": "2026-10-04T03:25:39.223Z",
   "configured": true,
   "cards": [
+    {
+      "id": "600061541",
+      "name": "UFC Fight Night: Allen vs. Duncan",
+      "date": "2026-10-11",
+      "start": "2026-10-11T00:00Z",
+      "venue": null,
+      "count": 0,
+      "pricedCount": 0,
+      "sections": [],
+      "announced": true,
+      "state": "pre"
+    },
     {
       "id": "600061182",
       "name": "UFC 332: Silva vs. Wang",
@@ -21,19 +33,19 @@
               "start": "2026-10-04T00:00Z",
               "weight": "W Flyweight",
               "rounds": 5,
-              "titleFight": false,
-              "state": "in",
-              "completed": false,
-              "winnerId": null,
-              "winnerName": null,
-              "method": null,
-              "endedAt": null,
+              "titleFight": true,
+              "state": "post",
+              "completed": true,
+              "winnerId": "4054605",
+              "winnerName": "Natalia Silva",
+              "method": "Decision",
+              "endedAt": "R5 5:00",
               "a": {
                 "id": "4054605",
                 "name": "Natalia Silva",
-                "record": "20-5-1",
-                "champion": false,
-                "won": false,
+                "record": "21-5-1",
+                "champion": true,
+                "won": true,
                 "best": -192,
                 "book": "DraftKings",
                 "consensus": -192,
@@ -43,7 +55,7 @@
               "b": {
                 "id": "4215200",
                 "name": "Wang Cong",
-                "record": "10-1-0",
+                "record": "10-2-0",
                 "champion": false,
                 "won": false,
                 "best": 160,
@@ -655,20 +667,8 @@
           ]
         }
       ],
-      "state": "live",
-      "finished": false
-    },
-    {
-      "id": "600061541",
-      "name": "UFC Fight Night: Allen vs. Duncan",
-      "date": "2026-10-11",
-      "start": "2026-10-11T00:00Z",
-      "venue": null,
-      "count": 0,
-      "pricedCount": 0,
-      "sections": [],
-      "announced": true,
-      "state": "pre"
+      "state": "final",
+      "finished": true
     },
     {
       "id": "600060773",
