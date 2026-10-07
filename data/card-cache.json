@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-06T22:01:07.508Z",
+  "fetched_at": "2026-10-07T03:20:45.687Z",
   "configured": true,
   "cards": [
     {
@@ -33,7 +33,7 @@
       "date": "2026-10-24",
       "start": "2026-10-24T14:00Z",
       "venue": "Etihad Arena, Abu Dhabi",
-      "count": 10,
+      "count": 9,
       "pricedCount": 2,
       "sections": [
         {
@@ -79,7 +79,7 @@
               "hold": 4.71,
               "books": 1,
               "priced": true,
-              "bout": 10,
+              "bout": 9,
               "section": "Main Card",
               "isMain": true,
               "boundBy": "athlete-id"
@@ -124,7 +124,7 @@
               "hold": 4.21,
               "books": 1,
               "priced": true,
-              "bout": 9,
+              "bout": 8,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -167,7 +167,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 8,
+              "bout": 7,
               "section": "Main Card",
               "isMain": false
             },
@@ -199,48 +199,6 @@
                 "id": "4001837",
                 "name": "Rizvan Kuniev",
                 "record": "14-3-1",
-                "champion": false,
-                "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
-              },
-              "hold": null,
-              "books": 0,
-              "priced": false,
-              "bout": 7,
-              "section": "Main Card",
-              "isMain": false
-            },
-            {
-              "id": "401911636",
-              "eventId": "600061267",
-              "start": "2026-10-24T18:00Z",
-              "weight": "Featherweight",
-              "rounds": 3,
-              "titleFight": false,
-              "state": "pre",
-              "completed": false,
-              "winnerId": null,
-              "winnerName": null,
-              "method": null,
-              "endedAt": null,
-              "a": {
-                "id": "3902098",
-                "name": "Arnold Allen",
-                "record": "21-4-0",
-                "champion": false,
-                "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
-              },
-              "b": {
-                "id": "4199009",
-                "name": "Aaron Pico",
-                "record": "14-5-0",
                 "champion": false,
                 "won": false,
                 "best": null,
