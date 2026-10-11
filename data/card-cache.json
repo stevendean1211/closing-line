@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-11T03:30:54.518Z",
+  "fetched_at": "2026-10-11T10:30:24.388Z",
   "configured": true,
   "cards": [
     {
@@ -7,18 +7,6 @@
       "name": "UFC Fight Night: Buckley vs. Malott",
       "date": "2026-10-18",
       "start": "2026-10-18T00:00Z",
-      "venue": null,
-      "count": 0,
-      "pricedCount": 0,
-      "sections": [],
-      "announced": true,
-      "state": "pre"
-    },
-    {
-      "id": "600061541",
-      "name": "UFC Fight Night: Allen vs. Duncan",
-      "date": "2026-10-11",
-      "start": "2026-10-11T00:00Z",
       "venue": null,
       "count": 0,
       "pricedCount": 0,
@@ -498,6 +486,18 @@
       "name": "UFC Fight Night: Bonfim vs. Brady",
       "date": "2026-11-08",
       "start": "2026-11-08T01:00Z",
+      "venue": null,
+      "count": 0,
+      "pricedCount": 0,
+      "sections": [],
+      "announced": true,
+      "state": "pre"
+    },
+    {
+      "id": "600061400",
+      "name": "UFC 334: Gane vs. Hokit",
+      "date": "2026-11-15",
+      "start": "2026-11-15T01:00Z",
       "venue": null,
       "count": 0,
       "pricedCount": 0,
