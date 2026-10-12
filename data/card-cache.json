@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-12T13:53:59.190Z",
+  "fetched_at": "2026-10-12T23:57:21.729Z",
   "configured": true,
   "cards": [
     {
@@ -46,11 +46,11 @@
                 "record": "28-4-0",
                 "champion": true,
                 "won": false,
-                "best": -105,
+                "best": -110,
                 "book": "DraftKings",
-                "consensus": -105,
-                "fair": 104,
-                "implied": 48.9
+                "consensus": -110,
+                "fair": 100,
+                "implied": 50
               },
               "b": {
                 "id": "4029275",
@@ -58,13 +58,13 @@
                 "record": "20-0-0",
                 "champion": false,
                 "won": false,
-                "best": -115,
+                "best": -110,
                 "book": "DraftKings",
-                "consensus": -115,
-                "fair": -104,
-                "implied": 51.1
+                "consensus": -110,
+                "fair": 100,
+                "implied": 50
               },
-              "hold": 4.71,
+              "hold": 4.76,
               "books": 1,
               "priced": true,
               "bout": 10,
@@ -448,7 +448,7 @@
               "b": {
                 "id": "5454811",
                 "name": "Asaf Chopurov",
-                "record": "0-0-0",
+                "record": "11-0-0",
                 "champion": false,
                 "won": false,
                 "best": null,
