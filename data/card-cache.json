@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-14T21:06:37.230Z",
+  "fetched_at": "2026-10-15T02:23:15.997Z",
   "configured": true,
   "cards": [
     {
@@ -21,7 +21,7 @@
       "date": "2026-10-24",
       "start": "2026-10-24T14:00Z",
       "venue": "Etihad Arena, Abu Dhabi",
-      "count": 10,
+      "count": 11,
       "pricedCount": 2,
       "sections": [
         {
@@ -67,7 +67,7 @@
               "hold": 4.76,
               "books": 1,
               "priced": true,
-              "bout": 10,
+              "bout": 11,
               "section": "Main Card",
               "isMain": true,
               "boundBy": "athlete-id"
@@ -112,7 +112,7 @@
               "hold": 4.28,
               "books": 1,
               "priced": true,
-              "bout": 9,
+              "bout": 10,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -155,7 +155,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 8,
+              "bout": 9,
               "section": "Main Card",
               "isMain": false
             },
@@ -197,7 +197,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 7,
+              "bout": 8,
               "section": "Main Card",
               "isMain": false
             },
@@ -239,7 +239,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 6,
+              "bout": 7,
               "section": "Main Card",
               "isMain": false
             }
@@ -286,7 +286,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 5,
+              "bout": 6,
               "section": "Prelims",
               "isMain": false
             },
@@ -328,7 +328,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 4,
+              "bout": 5,
               "section": "Prelims",
               "isMain": false
             },
@@ -370,7 +370,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 3,
+              "bout": 4,
               "section": "Prelims",
               "isMain": false
             },
@@ -412,7 +412,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 2,
+              "bout": 3,
               "section": "Prelims",
               "isMain": false
             }
@@ -449,6 +449,48 @@
                 "id": "5454811",
                 "name": "Asaf Chopurov",
                 "record": "11-0-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "hold": null,
+              "books": 0,
+              "priced": false,
+              "bout": 2,
+              "section": "Early Prelims",
+              "isMain": false
+            },
+            {
+              "id": "401930357",
+              "eventId": "600061267",
+              "start": "2026-10-24T14:00Z",
+              "weight": "Middleweight",
+              "rounds": 3,
+              "titleFight": false,
+              "state": "pre",
+              "completed": false,
+              "winnerId": null,
+              "winnerName": null,
+              "method": null,
+              "endedAt": null,
+              "a": {
+                "id": "3960340",
+                "name": "Abubakar Vagaev",
+                "record": "25-4-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "b": {
+                "id": "4687434",
+                "name": "Jacob Malkoun",
+                "record": "10-3-0",
                 "champion": false,
                 "won": false,
                 "best": null,
