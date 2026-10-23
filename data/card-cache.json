@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-22T20:58:44.103Z",
+  "fetched_at": "2026-10-23T02:34:22.926Z",
   "configured": true,
   "cards": [
     {
@@ -34,11 +34,11 @@
                 "record": "28-4-0",
                 "champion": true,
                 "won": false,
-                "best": -110,
+                "best": -112,
                 "book": "DraftKings",
-                "consensus": -110,
-                "fair": 100,
-                "implied": 50
+                "consensus": -112,
+                "fair": -102,
+                "implied": 50.4
               },
               "b": {
                 "id": "4029275",
@@ -46,13 +46,13 @@
                 "record": "20-0-0",
                 "champion": false,
                 "won": false,
-                "best": -110,
+                "best": -108,
                 "book": "DraftKings",
-                "consensus": -110,
-                "fair": 100,
-                "implied": 50
+                "consensus": -108,
+                "fair": 102,
+                "implied": 49.6
               },
-              "hold": 4.76,
+              "hold": 4.75,
               "books": 1,
               "priced": true,
               "bout": 14,
@@ -449,11 +449,11 @@
                 "record": "9-1-0",
                 "champion": false,
                 "won": false,
-                "best": 425,
+                "best": 440,
                 "book": "DraftKings",
-                "consensus": 425,
-                "fair": 447,
-                "implied": 18.3
+                "consensus": 440,
+                "fair": 460,
+                "implied": 17.9
               },
               "b": {
                 "id": "5454811",
@@ -464,10 +464,10 @@
                 "best": -575,
                 "book": "DraftKings",
                 "consensus": -575,
-                "fair": -447,
-                "implied": 81.7
+                "fair": -460,
+                "implied": 82.1
               },
-              "hold": 4.23,
+              "hold": 3.7,
               "books": 1,
               "priced": true,
               "bout": 5,
