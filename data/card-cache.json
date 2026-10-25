@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-25T02:50:24.199Z",
+  "fetched_at": "2026-10-25T08:02:17.265Z",
   "configured": true,
   "cards": [
     {
@@ -439,6 +439,18 @@
       ],
       "state": "pre",
       "finished": false
+    },
+    {
+      "id": "600061401",
+      "name": "UFC 335: Oliveira vs. Lopes",
+      "date": "2026-12-13",
+      "start": "2026-12-13T01:00Z",
+      "venue": null,
+      "count": 0,
+      "pricedCount": 0,
+      "sections": [],
+      "announced": true,
+      "state": "pre"
     }
   ]
 }
