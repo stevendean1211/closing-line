@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-26T22:06:18.749Z",
+  "fetched_at": "2026-10-27T02:55:40.787Z",
   "configured": true,
   "cards": [
     {
@@ -34,11 +34,11 @@
                 "record": "21-7-1",
                 "champion": false,
                 "won": false,
-                "best": -110,
+                "best": -118,
                 "book": "DraftKings",
-                "consensus": -110,
-                "fair": -102,
-                "implied": 50.6
+                "consensus": -118,
+                "fair": -107,
+                "implied": 51.7
               },
               "b": {
                 "id": "5144007",
@@ -46,13 +46,13 @@
                 "record": "11-1-0",
                 "champion": false,
                 "won": false,
-                "best": -105,
+                "best": -102,
                 "book": "DraftKings",
-                "consensus": -105,
-                "fair": 102,
-                "implied": 49.4
+                "consensus": -102,
+                "fair": 107,
+                "implied": 48.3
               },
-              "hold": 3.6,
+              "hold": 4.62,
               "books": 1,
               "priced": true,
               "bout": 13,
@@ -118,7 +118,7 @@
               "a": {
                 "id": "4424224",
                 "name": "Ode' Osbourne",
-                "record": "13-10-0",
+                "record": "13-9-0",
                 "champion": false,
                 "won": false,
                 "best": -108,
