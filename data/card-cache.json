@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-30T21:48:08.432Z",
+  "fetched_at": "2026-10-31T03:18:24.730Z",
   "configured": true,
   "cards": [
     {
@@ -124,11 +124,11 @@
                 "record": "13-9-0",
                 "champion": false,
                 "won": false,
-                "best": -102,
+                "best": 100,
                 "book": "DraftKings",
-                "consensus": -102,
-                "fair": 107,
-                "implied": 48.3
+                "consensus": 100,
+                "fair": 109,
+                "implied": 47.8
               },
               "b": {
                 "id": "4686725",
@@ -136,13 +136,13 @@
                 "record": "18-11-1",
                 "champion": false,
                 "won": false,
-                "best": -118,
+                "best": -120,
                 "book": "DraftKings",
-                "consensus": -118,
-                "fair": -107,
-                "implied": 51.7
+                "consensus": -120,
+                "fair": -109,
+                "implied": 52.2
               },
-              "hold": 4.62,
+              "hold": 4.55,
               "books": 1,
               "priced": true,
               "bout": 10,
@@ -214,11 +214,11 @@
                 "record": "11-2-0",
                 "champion": false,
                 "won": false,
-                "best": -278,
+                "best": -285,
                 "book": "DraftKings",
-                "consensus": -278,
-                "fair": -239,
-                "implied": 70.5
+                "consensus": -285,
+                "fair": -244,
+                "implied": 71
               },
               "b": {
                 "id": "5350562",
@@ -226,13 +226,13 @@
                 "record": "5-0-0",
                 "champion": false,
                 "won": false,
-                "best": 225,
+                "best": 230,
                 "book": "DraftKings",
-                "consensus": 225,
-                "fair": 239,
-                "implied": 29.5
+                "consensus": 230,
+                "fair": 244,
+                "implied": 29
               },
-              "hold": 4.31,
+              "hold": 4.33,
               "books": 1,
               "priced": true,
               "bout": 8,
@@ -444,11 +444,11 @@
                 "record": "6-3-0",
                 "champion": false,
                 "won": false,
-                "best": 250,
+                "best": 260,
                 "book": "DraftKings",
-                "consensus": 250,
-                "fair": 265,
-                "implied": 27.4
+                "consensus": 260,
+                "fair": 275,
+                "implied": 26.6
               },
               "b": {
                 "id": "4687604",
@@ -456,13 +456,13 @@
                 "record": "9-3-0",
                 "champion": false,
                 "won": false,
-                "best": -310,
+                "best": -325,
                 "book": "DraftKings",
-                "consensus": -310,
-                "fair": -265,
-                "implied": 72.6
+                "consensus": -325,
+                "fair": -275,
+                "implied": 73.4
               },
-              "hold": 4.18,
+              "hold": 4.25,
               "books": 1,
               "priced": true,
               "bout": 3,
@@ -568,7 +568,7 @@
     },
     {
       "id": "600061268",
-      "name": "UFC Fight Night: Bonfim vs. Brady",
+      "name": "UFC Fight Night: Cortes Acosta vs. Walker",
       "date": "2026-11-08",
       "start": "2026-11-08T01:00Z",
       "venue": null,
