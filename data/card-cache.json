@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-01T03:53:35.071Z",
+  "fetched_at": "2026-11-01T10:58:43.217Z",
   "configured": true,
   "cards": [
     {
@@ -7,18 +7,6 @@
       "name": "UFC Fight Night: Cortes Acosta vs. Walker",
       "date": "2026-11-08",
       "start": "2026-11-08T01:00Z",
-      "venue": null,
-      "count": 0,
-      "pricedCount": 0,
-      "sections": [],
-      "announced": true,
-      "state": "pre"
-    },
-    {
-      "id": "600061420",
-      "name": "UFC Fight Night: Moicano vs. Nolan",
-      "date": "2026-11-01",
-      "start": "2026-11-01T00:00Z",
       "venue": null,
       "count": 0,
       "pricedCount": 0,
