@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-08T02:38:38.896Z",
+  "fetched_at": "2026-11-08T03:24:44.362Z",
   "configured": true,
   "cards": [
     {
@@ -67,7 +67,7 @@
               "weight": "W Strawweight",
               "rounds": 3,
               "titleFight": false,
-              "state": "pre",
+              "state": "in",
               "completed": false,
               "winnerId": null,
               "winnerName": null,
@@ -81,9 +81,9 @@
                 "won": false,
                 "best": -218,
                 "book": "DraftKings",
-                "consensus": -218,
-                "fair": -192,
-                "implied": 65.7
+                "consensus": -361,
+                "fair": -384,
+                "implied": 79.3
               },
               "b": {
                 "id": "4289516",
@@ -91,14 +91,14 @@
                 "record": "23-4-0",
                 "champion": false,
                 "won": false,
-                "best": 180,
-                "book": "DraftKings",
-                "consensus": 180,
-                "fair": 192,
-                "implied": 34.3
+                "best": 600,
+                "book": "DraftKings - Live Odds",
+                "consensus": 390,
+                "fair": 384,
+                "implied": 20.7
               },
-              "hold": 4.27,
-              "books": 1,
+              "hold": -1.28,
+              "books": 2,
               "priced": true,
               "bout": 13,
               "section": "Main Card",
@@ -112,16 +112,16 @@
               "weight": "Bantamweight",
               "rounds": 3,
               "titleFight": false,
-              "state": "pre",
-              "completed": false,
-              "winnerId": null,
-              "winnerName": null,
-              "method": null,
-              "endedAt": null,
+              "state": "post",
+              "completed": true,
+              "winnerId": "5144797",
+              "winnerName": "Elijah Smith",
+              "method": "KO/TKO",
+              "endedAt": "R1 1:00",
               "a": {
                 "id": "3070984",
                 "name": "Davey Grant",
-                "record": "18-8-0",
+                "record": "18-9-0",
                 "champion": false,
                 "won": false,
                 "best": 275,
@@ -133,9 +133,9 @@
               "b": {
                 "id": "5144797",
                 "name": "Elijah Smith",
-                "record": "10-1-0",
+                "record": "11-1-0",
                 "champion": false,
-                "won": false,
+                "won": true,
                 "best": -345,
                 "book": "DraftKings",
                 "consensus": -345,
@@ -157,16 +157,16 @@
               "weight": "Light Heavyweight",
               "rounds": 3,
               "titleFight": false,
-              "state": "in",
-              "completed": false,
-              "winnerId": null,
-              "winnerName": null,
-              "method": null,
-              "endedAt": null,
+              "state": "post",
+              "completed": true,
+              "winnerId": "5119021",
+              "winnerName": "Lucas Fernando",
+              "method": "Decision",
+              "endedAt": "R3 5:00",
               "a": {
                 "id": "5078114",
                 "name": "Billy Elekana",
-                "record": "10-2-0",
+                "record": "10-3-0",
                 "champion": false,
                 "won": false,
                 "best": 250,
@@ -178,9 +178,9 @@
               "b": {
                 "id": "5119021",
                 "name": "Lucas Fernando",
-                "record": "14-3-0",
+                "record": "15-3-0",
                 "champion": false,
-                "won": false,
+                "won": true,
                 "best": -310,
                 "book": "DraftKings",
                 "consensus": -310,
@@ -890,11 +890,16 @@
               "bout": 5,
               "section": "Main Card",
               "isMain": false
-            },
+            }
+          ]
+        },
+        {
+          "label": "Prelims",
+          "fights": [
             {
               "id": "401927854",
               "eventId": "600061665",
-              "start": "2026-11-21T18:00Z",
+              "start": "2026-11-21T15:00Z",
               "weight": "Bantamweight",
               "rounds": 3,
               "titleFight": false,
@@ -930,14 +935,9 @@
               "books": 0,
               "priced": false,
               "bout": 4,
-              "section": "Main Card",
+              "section": "Prelims",
               "isMain": false
-            }
-          ]
-        },
-        {
-          "label": "Prelims",
-          "fights": [
+            },
             {
               "id": "401927852",
               "eventId": "600061665",
