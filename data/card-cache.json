@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-10T13:57:32.539Z",
+  "fetched_at": "2026-11-10T22:39:19.262Z",
   "configured": true,
   "cards": [
     {
@@ -9,7 +9,7 @@
       "date": "2026-11-14",
       "start": "2026-11-14T22:00Z",
       "venue": "Madison Square Garden, New York, NY",
-      "count": 13,
+      "count": 12,
       "pricedCount": 12,
       "sections": [
         {
@@ -55,7 +55,7 @@
               "hold": 4.27,
               "books": 1,
               "priced": true,
-              "bout": 13,
+              "bout": 12,
               "section": "Main Card",
               "isMain": true,
               "boundBy": "athlete-id"
@@ -82,8 +82,8 @@
                 "best": -192,
                 "book": "DraftKings",
                 "consensus": -192,
-                "fair": -171,
-                "implied": 63.1
+                "fair": -167,
+                "implied": 62.5
               },
               "b": {
                 "id": "2516131",
@@ -91,16 +91,16 @@
                 "record": "23-5-0",
                 "champion": false,
                 "won": false,
-                "best": 160,
+                "best": 154,
                 "book": "DraftKings",
-                "consensus": 160,
-                "fair": 171,
-                "implied": 36.9
+                "consensus": 154,
+                "fair": 167,
+                "implied": 37.5
               },
-              "hold": 4.21,
+              "hold": 5.12,
               "books": 1,
               "priced": true,
-              "bout": 12,
+              "bout": 11,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -127,8 +127,8 @@
                 "best": -162,
                 "book": "DraftKings",
                 "consensus": -162,
-                "fair": -148,
-                "implied": 59.7
+                "fair": -146,
+                "implied": 59.3
               },
               "b": {
                 "id": "5149815",
@@ -136,16 +136,16 @@
                 "record": "11-3-0",
                 "champion": false,
                 "won": false,
-                "best": 140,
+                "best": 136,
                 "book": "DraftKings",
-                "consensus": 140,
-                "fair": 148,
-                "implied": 40.3
+                "consensus": 136,
+                "fair": 146,
+                "implied": 40.7
               },
-              "hold": 3.5,
+              "hold": 4.2,
               "books": 1,
               "priced": true,
-              "bout": 11,
+              "bout": 10,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -190,7 +190,7 @@
               "hold": 4.32,
               "books": 1,
               "priced": true,
-              "bout": 10,
+              "bout": 9,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -235,7 +235,7 @@
               "hold": 4.17,
               "books": 1,
               "priced": true,
-              "bout": 9,
+              "bout": 8,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -285,7 +285,7 @@
               "hold": 4.32,
               "books": 1,
               "priced": true,
-              "bout": 8,
+              "bout": 7,
               "section": "Prelims",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -330,7 +330,7 @@
               "hold": 4.2,
               "books": 1,
               "priced": true,
-              "bout": 7,
+              "bout": 6,
               "section": "Prelims",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -354,11 +354,11 @@
                 "record": "39-19-0",
                 "champion": false,
                 "won": false,
-                "best": 170,
+                "best": 164,
                 "book": "DraftKings",
-                "consensus": 170,
-                "fair": 181,
-                "implied": 35.5
+                "consensus": 164,
+                "fair": 175,
+                "implied": 36.3
               },
               "b": {
                 "id": "4425604",
@@ -366,16 +366,16 @@
                 "record": "18-9-0",
                 "champion": false,
                 "won": false,
-                "best": -205,
+                "best": -198,
                 "book": "DraftKings",
-                "consensus": -205,
-                "fair": -181,
-                "implied": 64.5
+                "consensus": -198,
+                "fair": -175,
+                "implied": 63.7
               },
-              "hold": 4.25,
+              "hold": 4.32,
               "books": 1,
               "priced": true,
-              "bout": 6,
+              "bout": 5,
               "section": "Prelims",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -420,7 +420,7 @@
               "hold": 4.45,
               "books": 1,
               "priced": true,
-              "bout": 5,
+              "bout": 4,
               "section": "Prelims",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -470,7 +470,7 @@
               "hold": 4.26,
               "books": 1,
               "priced": true,
-              "bout": 4,
+              "bout": 3,
               "section": "Early Prelims",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -494,11 +494,11 @@
                 "record": "11-6-0",
                 "champion": false,
                 "won": false,
-                "best": 210,
+                "best": 215,
                 "book": "DraftKings",
-                "consensus": 210,
-                "fair": 223,
-                "implied": 30.9
+                "consensus": 215,
+                "fair": 229,
+                "implied": 30.4
               },
               "b": {
                 "id": "5310274",
@@ -506,61 +506,19 @@
                 "record": "8-0-0",
                 "champion": false,
                 "won": false,
-                "best": -258,
+                "best": -265,
                 "book": "DraftKings",
-                "consensus": -258,
-                "fair": -223,
-                "implied": 69.1
+                "consensus": -265,
+                "fair": -229,
+                "implied": 69.6
               },
-              "hold": 4.33,
+              "hold": 4.35,
               "books": 1,
               "priced": true,
-              "bout": 3,
+              "bout": 2,
               "section": "Early Prelims",
               "isMain": false,
               "boundBy": "athlete-id"
-            },
-            {
-              "id": "401922646",
-              "eventId": "600061400",
-              "start": "2026-11-14T22:00Z",
-              "weight": "Bantamweight",
-              "rounds": 3,
-              "titleFight": false,
-              "state": "pre",
-              "completed": false,
-              "winnerId": null,
-              "winnerName": null,
-              "method": null,
-              "endedAt": null,
-              "a": {
-                "id": "3998248",
-                "name": "Adrian Yañez",
-                "record": "18-6-1",
-                "champion": false,
-                "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
-              },
-              "b": {
-                "id": "5310574",
-                "name": "Juan Diaz",
-                "record": "16-1-1",
-                "champion": false,
-                "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
-              },
-              "hold": null,
-              "books": 0,
-              "priced": false,
-              "bout": 2,
-              "section": "Early Prelims",
-              "isMain": false
             },
             {
               "id": "401932013",
@@ -581,11 +539,11 @@
                 "record": "10-2-0",
                 "champion": false,
                 "won": false,
-                "best": 100,
+                "best": -102,
                 "book": "DraftKings",
-                "consensus": 100,
-                "fair": 109,
-                "implied": 47.8
+                "consensus": -102,
+                "fair": 107,
+                "implied": 48.3
               },
               "b": {
                 "id": "5293557",
@@ -593,13 +551,13 @@
                 "record": "11-1-0",
                 "champion": false,
                 "won": false,
-                "best": -120,
+                "best": -118,
                 "book": "DraftKings",
-                "consensus": -120,
-                "fair": -109,
-                "implied": 52.2
+                "consensus": -118,
+                "fair": -107,
+                "implied": 51.7
               },
-              "hold": 4.55,
+              "hold": 4.62,
               "books": 1,
               "priced": true,
               "bout": 1,
