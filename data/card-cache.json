@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-14T04:04:26.924Z",
+  "fetched_at": "2026-11-14T12:42:46.991Z",
   "configured": true,
   "cards": [
     {
@@ -399,11 +399,11 @@
                 "record": "9-0-0",
                 "champion": false,
                 "won": false,
-                "best": -185,
+                "best": -198,
                 "book": "DraftKings",
-                "consensus": -185,
-                "fair": -165,
-                "implied": 62.2
+                "consensus": -198,
+                "fair": -175,
+                "implied": 63.7
               },
               "b": {
                 "id": "5144068",
@@ -411,13 +411,13 @@
                 "record": "7-3-0",
                 "champion": false,
                 "won": false,
-                "best": 154,
+                "best": 164,
                 "book": "DraftKings",
-                "consensus": 154,
-                "fair": 165,
-                "implied": 37.8
+                "consensus": 164,
+                "fair": 175,
+                "implied": 36.3
               },
-              "hold": 4.28,
+              "hold": 4.32,
               "books": 1,
               "priced": true,
               "bout": 5,
@@ -623,7 +623,7 @@
       "date": "2026-11-21",
       "start": "2026-11-21T15:00Z",
       "venue": "ABHA Arena, Doha",
-      "count": 9,
+      "count": 11,
       "pricedCount": 8,
       "sections": [
         {
@@ -669,7 +669,7 @@
               "hold": 4.32,
               "books": 1,
               "priced": true,
-              "bout": 9,
+              "bout": 11,
               "section": "Main Card",
               "isMain": true,
               "boundBy": "athlete-id"
@@ -714,7 +714,7 @@
               "hold": 4.14,
               "books": 1,
               "priced": true,
-              "bout": 8,
+              "bout": 10,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -759,7 +759,7 @@
               "hold": 4.2,
               "books": 1,
               "priced": true,
-              "bout": 7,
+              "bout": 9,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -804,7 +804,7 @@
               "hold": 4.25,
               "books": 1,
               "priced": true,
-              "bout": 6,
+              "bout": 8,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -849,7 +849,7 @@
               "hold": 4.34,
               "books": 1,
               "priced": true,
-              "bout": 5,
+              "bout": 7,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -892,7 +892,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 4,
+              "bout": 6,
               "section": "Main Card",
               "isMain": false
             }
@@ -941,7 +941,7 @@
               "hold": 4.32,
               "books": 1,
               "priced": true,
-              "bout": 3,
+              "bout": 5,
               "section": "Prelims",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -968,8 +968,8 @@
                 "best": 114,
                 "book": "DraftKings",
                 "consensus": 114,
-                "fair": 130,
-                "implied": 43.5
+                "fair": 123,
+                "implied": 44.9
               },
               "b": {
                 "id": "5074121",
@@ -977,16 +977,16 @@
                 "record": "17-5-0",
                 "champion": false,
                 "won": false,
-                "best": -155,
+                "best": -135,
                 "book": "DraftKings",
-                "consensus": -155,
-                "fair": -130,
-                "implied": 56.5
+                "consensus": -135,
+                "fair": -123,
+                "implied": 55.1
               },
-              "hold": 7.51,
+              "hold": 4.18,
               "books": 1,
               "priced": true,
-              "bout": 2,
+              "bout": 4,
               "section": "Prelims",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -1031,10 +1031,94 @@
               "hold": 4.29,
               "books": 1,
               "priced": true,
-              "bout": 1,
+              "bout": 3,
               "section": "Prelims",
               "isMain": false,
               "boundBy": "athlete-id"
+            },
+            {
+              "id": "401934355",
+              "eventId": "600061665",
+              "start": "2026-11-21T15:00Z",
+              "weight": "Lightweight",
+              "rounds": 3,
+              "titleFight": false,
+              "state": "pre",
+              "completed": false,
+              "winnerId": null,
+              "winnerName": null,
+              "method": null,
+              "endedAt": null,
+              "a": {
+                "id": "3897242",
+                "name": "Nikolas Motta",
+                "record": "15-6-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "b": {
+                "id": "5157806",
+                "name": "Dom Mar Fan",
+                "record": "9-3-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "hold": null,
+              "books": 0,
+              "priced": false,
+              "bout": 2,
+              "section": "Prelims",
+              "isMain": false
+            },
+            {
+              "id": "401934356",
+              "eventId": "600061665",
+              "start": "2026-11-21T15:00Z",
+              "weight": "Light Heavyweight",
+              "rounds": 3,
+              "titleFight": false,
+              "state": "pre",
+              "completed": false,
+              "winnerId": null,
+              "winnerName": null,
+              "method": null,
+              "endedAt": null,
+              "a": {
+                "id": "5213352",
+                "name": "Diyar Nurgozhay",
+                "record": "12-2-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "b": {
+                "id": "5220971",
+                "name": "Alik Lorenz",
+                "record": "8-2-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "hold": null,
+              "books": 0,
+              "priced": false,
+              "bout": 1,
+              "section": "Prelims",
+              "isMain": false
             }
           ]
         }
