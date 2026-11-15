@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-15T12:09:00.990Z",
+  "fetched_at": "2026-11-15T13:09:47.311Z",
   "configured": true,
   "cards": [
     {
@@ -34,11 +34,11 @@
                 "record": "32-6-1",
                 "champion": false,
                 "won": false,
-                "best": 124,
+                "best": 130,
                 "book": "DraftKings",
-                "consensus": 124,
-                "fair": 134,
-                "implied": 42.8
+                "consensus": 130,
+                "fair": 140,
+                "implied": 41.7
               },
               "b": {
                 "id": "5216713",
@@ -46,13 +46,13 @@
                 "record": "11-0-0",
                 "champion": false,
                 "won": false,
-                "best": -148,
+                "best": -155,
                 "book": "DraftKings",
-                "consensus": -148,
-                "fair": -134,
-                "implied": 57.2
+                "consensus": -155,
+                "fair": -140,
+                "implied": 58.3
               },
-              "hold": 4.32,
+              "hold": 4.26,
               "books": 1,
               "priced": true,
               "bout": 11,
