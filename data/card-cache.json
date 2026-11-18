@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-18T00:13:02.748Z",
+  "fetched_at": "2026-11-18T14:48:28.211Z",
   "configured": true,
   "cards": [
     {
@@ -34,11 +34,11 @@
                 "record": "32-6-1",
                 "champion": false,
                 "won": false,
-                "best": 130,
+                "best": 136,
                 "book": "DraftKings",
-                "consensus": 130,
-                "fair": 140,
-                "implied": 41.7
+                "consensus": 136,
+                "fair": 146,
+                "implied": 40.7
               },
               "b": {
                 "id": "5216713",
@@ -46,13 +46,13 @@
                 "record": "11-0-0",
                 "champion": false,
                 "won": false,
-                "best": -155,
+                "best": -162,
                 "book": "DraftKings",
-                "consensus": -155,
-                "fair": -140,
-                "implied": 58.3
+                "consensus": -162,
+                "fair": -146,
+                "implied": 59.3
               },
-              "hold": 4.26,
+              "hold": 4.2,
               "books": 1,
               "priced": true,
               "bout": 11,
@@ -169,11 +169,11 @@
                 "record": "36-6-0",
                 "champion": false,
                 "won": false,
-                "best": -198,
+                "best": -205,
                 "book": "DraftKings",
-                "consensus": -198,
-                "fair": -175,
-                "implied": 63.7
+                "consensus": -205,
+                "fair": -181,
+                "implied": 64.5
               },
               "b": {
                 "id": "4294926",
@@ -181,13 +181,13 @@
                 "record": "24-3-0",
                 "champion": false,
                 "won": false,
-                "best": 164,
+                "best": 170,
                 "book": "DraftKings",
-                "consensus": 164,
-                "fair": 175,
-                "implied": 36.3
+                "consensus": 170,
+                "fair": 181,
+                "implied": 35.5
               },
-              "hold": 4.32,
+              "hold": 4.25,
               "books": 1,
               "priced": true,
               "bout": 8,
@@ -214,11 +214,11 @@
                 "record": "18-10-0",
                 "champion": false,
                 "won": false,
-                "best": 245,
+                "best": 230,
                 "book": "DraftKings",
-                "consensus": 245,
-                "fair": 260,
-                "implied": 27.8
+                "consensus": 230,
+                "fair": 244,
+                "implied": 29
               },
               "b": {
                 "id": "4684776",
@@ -226,24 +226,29 @@
                 "record": "18-2-0",
                 "champion": false,
                 "won": false,
-                "best": -305,
+                "best": -285,
                 "book": "DraftKings",
-                "consensus": -305,
-                "fair": -260,
-                "implied": 72.2
+                "consensus": -285,
+                "fair": -244,
+                "implied": 71
               },
-              "hold": 4.29,
+              "hold": 4.33,
               "books": 1,
               "priced": true,
               "bout": 7,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
-            },
+            }
+          ]
+        },
+        {
+          "label": "Prelims",
+          "fights": [
             {
               "id": "401927854",
               "eventId": "600061665",
-              "start": "2026-11-21T18:00Z",
+              "start": "2026-11-21T15:00Z",
               "weight": "Bantamweight",
               "rounds": 3,
               "titleFight": false,
@@ -259,11 +264,11 @@
                 "record": "7-1-0",
                 "champion": false,
                 "won": false,
-                "best": -290,
+                "best": -278,
                 "book": "DraftKings",
-                "consensus": -290,
-                "fair": -249,
-                "implied": 71.4
+                "consensus": -278,
+                "fair": -239,
+                "implied": 70.5
               },
               "b": {
                 "id": "5307799",
@@ -271,25 +276,20 @@
                 "record": "8-1-0",
                 "champion": false,
                 "won": false,
-                "best": 235,
+                "best": 225,
                 "book": "DraftKings",
-                "consensus": 235,
-                "fair": 249,
-                "implied": 28.6
+                "consensus": 225,
+                "fair": 239,
+                "implied": 29.5
               },
-              "hold": 4.21,
+              "hold": 4.31,
               "books": 1,
               "priced": true,
               "bout": 6,
-              "section": "Main Card",
+              "section": "Prelims",
               "isMain": false,
               "boundBy": "athlete-id"
-            }
-          ]
-        },
-        {
-          "label": "Prelims",
-          "fights": [
+            },
             {
               "id": "401927852",
               "eventId": "600061665",
@@ -444,11 +444,11 @@
                 "record": "15-6-0",
                 "champion": false,
                 "won": false,
-                "best": 142,
+                "best": 140,
                 "book": "DraftKings",
-                "consensus": 142,
-                "fair": 152,
-                "implied": 39.6
+                "consensus": 140,
+                "fair": 150,
+                "implied": 40
               },
               "b": {
                 "id": "5157806",
@@ -456,13 +456,13 @@
                 "record": "9-3-0",
                 "champion": false,
                 "won": false,
-                "best": -170,
+                "best": -166,
                 "book": "DraftKings",
-                "consensus": -170,
-                "fair": -152,
-                "implied": 60.4
+                "consensus": -166,
+                "fair": -150,
+                "implied": 60
               },
-              "hold": 4.29,
+              "hold": 4.07,
               "books": 1,
               "priced": true,
               "bout": 2,
@@ -489,11 +489,11 @@
                 "record": "12-2-0",
                 "champion": false,
                 "won": false,
-                "best": -250,
+                "best": -245,
                 "book": "DraftKings",
-                "consensus": -250,
-                "fair": -218,
-                "implied": 68.5
+                "consensus": -245,
+                "fair": -213,
+                "implied": 68.1
               },
               "b": {
                 "id": "5220971",
@@ -501,13 +501,13 @@
                 "record": "8-2-0",
                 "champion": false,
                 "won": false,
-                "best": 205,
+                "best": 200,
                 "book": "DraftKings",
-                "consensus": 205,
-                "fair": 218,
-                "implied": 31.5
+                "consensus": 200,
+                "fair": 213,
+                "implied": 31.9
               },
-              "hold": 4.22,
+              "hold": 4.35,
               "books": 1,
               "priced": true,
               "bout": 1,
@@ -598,11 +598,11 @@
                 "record": "17-2-0",
                 "champion": false,
                 "won": false,
-                "best": -170,
+                "best": -175,
                 "book": "DraftKings",
-                "consensus": -170,
-                "fair": -152,
-                "implied": 60.4
+                "consensus": -175,
+                "fair": -156,
+                "implied": 60.9
               },
               "b": {
                 "id": "4275020",
@@ -610,13 +610,13 @@
                 "record": "30-1-0",
                 "champion": false,
                 "won": false,
-                "best": 142,
+                "best": 145,
                 "book": "DraftKings",
-                "consensus": 142,
-                "fair": 152,
-                "implied": 39.6
+                "consensus": 145,
+                "fair": 156,
+                "implied": 39.1
               },
-              "hold": 4.29,
+              "hold": 4.45,
               "books": 1,
               "priced": true,
               "bout": 11,
@@ -665,16 +665,11 @@
               "bout": 10,
               "section": "Main Card",
               "isMain": false
-            }
-          ]
-        },
-        {
-          "label": "Prelims",
-          "fights": [
+            },
             {
               "id": "401933598",
               "eventId": "600062700",
-              "start": "2026-12-05T15:00Z",
+              "start": "2026-12-05T18:00Z",
               "weight": "Welterweight",
               "rounds": 3,
               "titleFight": false,
@@ -710,13 +705,13 @@
               "books": 0,
               "priced": false,
               "bout": 9,
-              "section": "Prelims",
+              "section": "Main Card",
               "isMain": false
             },
             {
               "id": "401933599",
               "eventId": "600062700",
-              "start": "2026-12-05T15:00Z",
+              "start": "2026-12-05T18:00Z",
               "weight": "Lightweight",
               "rounds": 3,
               "titleFight": false,
@@ -752,13 +747,13 @@
               "books": 0,
               "priced": false,
               "bout": 8,
-              "section": "Prelims",
+              "section": "Main Card",
               "isMain": false
             },
             {
               "id": "401933600",
               "eventId": "600062700",
-              "start": "2026-12-05T15:00Z",
+              "start": "2026-12-05T18:00Z",
               "weight": "Light Heavyweight",
               "rounds": 3,
               "titleFight": false,
@@ -794,9 +789,14 @@
               "books": 0,
               "priced": false,
               "bout": 7,
-              "section": "Prelims",
+              "section": "Main Card",
               "isMain": false
-            },
+            }
+          ]
+        },
+        {
+          "label": "Prelims",
+          "fights": [
             {
               "id": "401933601",
               "eventId": "600062700",
