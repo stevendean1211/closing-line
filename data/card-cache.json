@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-22T22:57:58.502Z",
+  "fetched_at": "2026-11-23T04:46:12.169Z",
   "configured": true,
   "cards": [
     {
@@ -34,11 +34,11 @@
                 "record": "24-6-0",
                 "champion": false,
                 "won": false,
-                "best": -166,
+                "best": -180,
                 "book": "DraftKings",
-                "consensus": -166,
-                "fair": -150,
-                "implied": 60
+                "consensus": -180,
+                "fair": -161,
+                "implied": 61.6
               },
               "b": {
                 "id": "4421784",
@@ -46,13 +46,13 @@
                 "record": "17-1-0",
                 "champion": false,
                 "won": false,
-                "best": 140,
+                "best": 150,
                 "book": "DraftKings",
-                "consensus": 140,
-                "fair": 150,
-                "implied": 40
+                "consensus": 150,
+                "fair": 161,
+                "implied": 38.4
               },
-              "hold": 4.07,
+              "hold": 4.29,
               "books": 1,
               "priced": true,
               "bout": 13,
@@ -79,11 +79,11 @@
                 "record": "17-2-0",
                 "champion": false,
                 "won": false,
-                "best": -170,
+                "best": -175,
                 "book": "DraftKings",
-                "consensus": -170,
-                "fair": -152,
-                "implied": 60.4
+                "consensus": -175,
+                "fair": -156,
+                "implied": 60.9
               },
               "b": {
                 "id": "4275020",
@@ -91,13 +91,13 @@
                 "record": "30-1-0",
                 "champion": false,
                 "won": false,
-                "best": 142,
+                "best": 145,
                 "book": "DraftKings",
-                "consensus": 142,
-                "fair": 152,
-                "implied": 39.6
+                "consensus": 145,
+                "fair": 156,
+                "implied": 39.1
               },
-              "hold": 4.29,
+              "hold": 4.45,
               "books": 1,
               "priced": true,
               "bout": 12,
@@ -190,6 +190,48 @@
               "isMain": false
             },
             {
+              "id": "401933598",
+              "eventId": "600062700",
+              "start": "2026-12-05T18:00Z",
+              "weight": "Welterweight",
+              "rounds": 3,
+              "titleFight": false,
+              "state": "pre",
+              "completed": false,
+              "winnerId": null,
+              "winnerName": null,
+              "method": null,
+              "endedAt": null,
+              "a": {
+                "id": "4867651",
+                "name": "Levan Chokheli",
+                "record": "15-3-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "b": {
+                "id": "5212748",
+                "name": "Islam Dulatov",
+                "record": "12-1-0",
+                "champion": false,
+                "won": false,
+                "best": null,
+                "book": null,
+                "consensus": null,
+                "fair": null
+              },
+              "hold": null,
+              "books": 0,
+              "priced": false,
+              "bout": 9,
+              "section": "Main Card",
+              "isMain": false
+            },
+            {
               "id": "401933599",
               "eventId": "600062700",
               "start": "2026-12-05T18:00Z",
@@ -227,7 +269,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 9,
+              "bout": 8,
               "section": "Main Card",
               "isMain": false
             },
@@ -269,7 +311,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 8,
+              "bout": 7,
               "section": "Main Card",
               "isMain": false
             }
@@ -316,7 +358,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 7,
+              "bout": 6,
               "section": "Prelims",
               "isMain": false
             },
@@ -358,7 +400,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 6,
+              "bout": 5,
               "section": "Prelims",
               "isMain": false
             },
@@ -400,7 +442,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 5,
+              "bout": 4,
               "section": "Prelims",
               "isMain": false
             },
@@ -442,7 +484,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 4,
+              "bout": 3,
               "section": "Prelims",
               "isMain": false
             },
@@ -484,7 +526,7 @@
               "hold": null,
               "books": 0,
               "priced": false,
-              "bout": 3,
+              "bout": 2,
               "section": "Prelims",
               "isMain": false
             },
@@ -516,48 +558,6 @@
                 "id": "5236383",
                 "name": "Hecher Sosa",
                 "record": "15-1-0",
-                "champion": false,
-                "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
-              },
-              "hold": null,
-              "books": 0,
-              "priced": false,
-              "bout": 2,
-              "section": "Prelims",
-              "isMain": false
-            },
-            {
-              "id": "401933598",
-              "eventId": "600062700",
-              "start": "2026-12-05T15:00Z",
-              "weight": "Welterweight",
-              "rounds": 3,
-              "titleFight": false,
-              "state": "pre",
-              "completed": false,
-              "winnerId": null,
-              "winnerName": null,
-              "method": null,
-              "endedAt": null,
-              "a": {
-                "id": "4867651",
-                "name": "Levan Chokheli",
-                "record": "15-3-0",
-                "champion": false,
-                "won": false,
-                "best": null,
-                "book": null,
-                "consensus": null,
-                "fair": null
-              },
-              "b": {
-                "id": "5212748",
-                "name": "Islam Dulatov",
-                "record": "12-1-0",
                 "champion": false,
                 "won": false,
                 "best": null,
