@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-25T01:44:56.442Z",
+  "fetched_at": "2026-11-25T16:27:58.480Z",
   "configured": true,
   "cards": [
     {
@@ -79,11 +79,11 @@
                 "record": "17-2-0",
                 "champion": false,
                 "won": false,
-                "best": -180,
+                "best": -170,
                 "book": "DraftKings",
-                "consensus": -180,
-                "fair": -161,
-                "implied": 61.6
+                "consensus": -170,
+                "fair": -152,
+                "implied": 60.4
               },
               "b": {
                 "id": "4275020",
@@ -91,11 +91,11 @@
                 "record": "30-1-0",
                 "champion": false,
                 "won": false,
-                "best": 150,
+                "best": 142,
                 "book": "DraftKings",
-                "consensus": 150,
-                "fair": 161,
-                "implied": 38.4
+                "consensus": 142,
+                "fair": 152,
+                "implied": 39.6
               },
               "hold": 4.29,
               "books": 1,
@@ -151,51 +151,6 @@
               "boundBy": "athlete-id"
             },
             {
-              "id": "401936244",
-              "eventId": "600062700",
-              "start": "2026-12-05T18:00Z",
-              "weight": "Featherweight",
-              "rounds": 3,
-              "titleFight": false,
-              "state": "pre",
-              "completed": false,
-              "winnerId": null,
-              "winnerName": null,
-              "method": null,
-              "endedAt": null,
-              "a": {
-                "id": "5146696",
-                "name": "Luke Riley",
-                "record": "14-0-0",
-                "champion": false,
-                "won": false,
-                "best": -148,
-                "book": "DraftKings",
-                "consensus": -148,
-                "fair": -134,
-                "implied": 57.2
-              },
-              "b": {
-                "id": "5109762",
-                "name": "Gabriel Santos",
-                "record": "12-2-0",
-                "champion": false,
-                "won": false,
-                "best": 124,
-                "book": "DraftKings",
-                "consensus": 124,
-                "fair": 134,
-                "implied": 42.8
-              },
-              "hold": 4.32,
-              "books": 1,
-              "priced": true,
-              "bout": 11,
-              "section": "Main Card",
-              "isMain": false,
-              "boundBy": "athlete-id"
-            },
-            {
               "id": "401933598",
               "eventId": "600062700",
               "start": "2026-12-05T18:00Z",
@@ -214,11 +169,11 @@
                 "record": "15-3-0",
                 "champion": false,
                 "won": false,
-                "best": 164,
+                "best": 160,
                 "book": "DraftKings",
-                "consensus": 164,
-                "fair": 175,
-                "implied": 36.3
+                "consensus": 160,
+                "fair": 171,
+                "implied": 36.9
               },
               "b": {
                 "id": "5212748",
@@ -226,16 +181,16 @@
                 "record": "12-1-0",
                 "champion": false,
                 "won": false,
-                "best": -198,
+                "best": -192,
                 "book": "DraftKings",
-                "consensus": -198,
-                "fair": -175,
-                "implied": 63.7
+                "consensus": -192,
+                "fair": -171,
+                "implied": 63.1
               },
-              "hold": 4.32,
+              "hold": 4.21,
               "books": 1,
               "priced": true,
-              "bout": 10,
+              "bout": 11,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -259,11 +214,11 @@
                 "record": "18-1-0",
                 "champion": false,
                 "won": false,
-                "best": 245,
+                "best": 235,
                 "book": "DraftKings",
-                "consensus": 245,
-                "fair": 260,
-                "implied": 27.8
+                "consensus": 235,
+                "fair": 249,
+                "implied": 28.6
               },
               "b": {
                 "id": "5210077",
@@ -271,16 +226,16 @@
                 "record": "14-0-0",
                 "champion": false,
                 "won": false,
-                "best": -305,
+                "best": -290,
                 "book": "DraftKings",
-                "consensus": -305,
-                "fair": -260,
-                "implied": 72.2
+                "consensus": -290,
+                "fair": -249,
+                "implied": 71.4
               },
-              "hold": 4.29,
+              "hold": 4.21,
               "books": 1,
               "priced": true,
-              "bout": 9,
+              "bout": 10,
               "section": "Main Card",
               "isMain": false,
               "boundBy": "athlete-id"
@@ -323,6 +278,51 @@
                 "implied": 36.9
               },
               "hold": 4.21,
+              "books": 1,
+              "priced": true,
+              "bout": 9,
+              "section": "Main Card",
+              "isMain": false,
+              "boundBy": "athlete-id"
+            },
+            {
+              "id": "401936244",
+              "eventId": "600062700",
+              "start": "2026-12-05T18:00Z",
+              "weight": "Featherweight",
+              "rounds": 3,
+              "titleFight": false,
+              "state": "pre",
+              "completed": false,
+              "winnerId": null,
+              "winnerName": null,
+              "method": null,
+              "endedAt": null,
+              "a": {
+                "id": "5146696",
+                "name": "Luke Riley",
+                "record": "14-0-0",
+                "champion": false,
+                "won": false,
+                "best": -148,
+                "book": "DraftKings",
+                "consensus": -148,
+                "fair": -134,
+                "implied": 57.2
+              },
+              "b": {
+                "id": "5109762",
+                "name": "Gabriel Santos",
+                "record": "12-2-0",
+                "champion": false,
+                "won": false,
+                "best": 124,
+                "book": "DraftKings",
+                "consensus": 124,
+                "fair": 134,
+                "implied": 42.8
+              },
+              "hold": 4.32,
               "books": 1,
               "priced": true,
               "bout": 8,
@@ -396,11 +396,11 @@
                 "record": "9-1-0",
                 "champion": false,
                 "won": false,
-                "best": -118,
+                "best": -125,
                 "book": "DraftKings",
-                "consensus": -118,
-                "fair": -107,
-                "implied": 51.7
+                "consensus": -125,
+                "fair": -112,
+                "implied": 52.9
               },
               "b": {
                 "id": "5292007",
@@ -408,13 +408,13 @@
                 "record": "7-0-0",
                 "champion": false,
                 "won": false,
-                "best": -102,
+                "best": 102,
                 "book": "DraftKings",
-                "consensus": -102,
-                "fair": 107,
-                "implied": 48.3
+                "consensus": 102,
+                "fair": 112,
+                "implied": 47.1
               },
-              "hold": 4.62,
+              "hold": 5.06,
               "books": 1,
               "priced": true,
               "bout": 6,
@@ -483,11 +483,11 @@
                 "record": "9-0-0",
                 "champion": false,
                 "won": false,
-                "best": -135,
+                "best": -122,
                 "book": "DraftKings",
-                "consensus": -135,
-                "fair": -123,
-                "implied": 55.1
+                "consensus": -122,
+                "fair": -111,
+                "implied": 52.6
               },
               "b": {
                 "id": "5345640",
@@ -495,13 +495,13 @@
                 "record": "12-2-0",
                 "champion": false,
                 "won": false,
-                "best": 114,
+                "best": 102,
                 "book": "DraftKings",
-                "consensus": 114,
-                "fair": 123,
-                "implied": 44.9
+                "consensus": 102,
+                "fair": 111,
+                "implied": 47.4
               },
-              "hold": 4.18,
+              "hold": 4.46,
               "books": 1,
               "priced": true,
               "bout": 4,
@@ -528,11 +528,11 @@
                 "record": "8-1-0",
                 "champion": false,
                 "won": false,
-                "best": 114,
+                "best": 120,
                 "book": "DraftKings",
-                "consensus": 114,
-                "fair": 123,
-                "implied": 44.9
+                "consensus": 120,
+                "fair": 129,
+                "implied": 43.7
               },
               "b": {
                 "id": "5013686",
@@ -540,13 +540,13 @@
                 "record": "11-3-0",
                 "champion": false,
                 "won": false,
-                "best": -135,
+                "best": -142,
                 "book": "DraftKings",
-                "consensus": -135,
-                "fair": -123,
-                "implied": 55.1
+                "consensus": -142,
+                "fair": -129,
+                "implied": 56.3
               },
-              "hold": 4.18,
+              "hold": 4.13,
               "books": 1,
               "priced": true,
               "bout": 3,
